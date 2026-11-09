@@ -1,0 +1,399 @@
+{
+  "errors": [],
+  "home": {
+    "label": "home desktop",
+    "title": "酒谱 · 这瓶酒，什么来头，什么时候喝？",
+    "innerWidth": 1440,
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "cards": 0,
+    "rooms": 6,
+    "filters": 0,
+    "result": "",
+    "drawers": 4,
+    "h1": "这瓶酒， 什么来头， 什么时候喝？",
+    "dupIds": []
+  },
+  "homeCounts": {
+    "bottles": "214",
+    "brands": "163",
+    "roomCounts": [
+      "52 瓶",
+      "49 款",
+      "55 瓶",
+      "23 通",
+      "8 瓶",
+      "27 件"
+    ],
+    "today": "格兰菲迪 30 年",
+    "roomArts": 6,
+    "heroArts": 3,
+    "allTotal": 214,
+    "allBrands": 163
+  },
+  "globalCounts": {
+    "cover": "ISSUE 00 / A PRIVATE CELLAR\n214 BOTTLES · 163 BRANDS · 6 ROOMS",
+    "foot": "THE CELLAR INDEX\n214 BOTTLES / 163 BRANDS\n11 PAGES / EDITION 2026\n酒款总表 / INVENTORY ↗",
+    "bottleNodes": [
+      "214",
+      "214",
+      "214"
+    ],
+    "brandNodes": [
+      "163",
+      "163",
+      "163"
+    ]
+  },
+  "structural": {
+    "warnings": 1,
+    "externalAssets": [],
+    "navLinks": 7,
+    "healthClaims": false
+  },
+  "searchOpen": {
+    "open": true,
+    "focused": "globalSearchInput",
+    "panelFont": "\"Avenir Next\", Avenir, \"Helvetica Neue\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei\", sans-serif"
+  },
+  "brandDirectory": {
+    "chips": [
+      "格兰菲迪\n7 款",
+      "青岛啤酒\n7 款",
+      "梅侍\n5 款",
+      "尊尼获加\n5 款",
+      "马爹利\n4 款",
+      "奔富\n3 款",
+      "泸州老窖\n3 款",
+      "人头马\n3 款",
+      "唐培里侬\n3 款",
+      "五粮液\n3 款",
+      "洋河\n3 款",
+      "2 Town \n2 款",
+      "百威\n2 款",
+      "保拉纳\n2 款"
+    ],
+    "categories": 6
+  },
+  "johnnieSearch": {
+    "query": "尊尼获加",
+    "hits": 5,
+    "groups": 1
+  },
+  "gfSearch": {
+    "groups": 1,
+    "hits": 7,
+    "summary": "找到 7 瓶，聚合为 1 个品牌 · 按品牌展开"
+  },
+  "cross": {
+    "file": "spirits.html",
+    "hash": "#glenfiddich-12",
+    "drawer": true,
+    "title": "格兰菲迪 12 年",
+    "active": "西方酒\nSPIRITS"
+  },
+  "wine": {
+    "label": "wine desktop",
+    "title": "葡萄酒 · 酒谱",
+    "innerWidth": 1440,
+    "clientWidth": 1440,
+    "scrollWidth": 1440,
+    "cards": 15,
+    "rooms": 0,
+    "filters": 7,
+    "result": "52 瓶入窖 / 本柜 52 瓶 · 第 1 / 4 页",
+    "drawers": 3,
+    "h1": "葡萄酒 Le langage lent",
+    "dupIds": []
+  },
+  "wineFilter": {
+    "cards": 15,
+    "chips": [
+      "类型 · 红葡萄酒"
+    ],
+    "result": "23 瓶入窖 / 本柜 52 瓶 · 第 1 / 2 页 清空条件",
+    "redTotal": 23
+  },
+  "filterResults": {
+    "beer.html": {
+      "cards": 1,
+      "chips": 1,
+      "resetDisabled": false,
+      "ageCount": 4,
+      "japanCount": 3
+    },
+    "spirits.html": {
+      "cards": 4,
+      "chips": 1,
+      "resetDisabled": false,
+      "ageCount": 4,
+      "japanCount": 3
+    },
+    "eastern.html": {
+      "cards": 3,
+      "chips": 1,
+      "resetDisabled": false,
+      "ageCount": 4,
+      "japanCount": 3
+    },
+    "liqueur.html": {
+      "cards": 1,
+      "chips": 1,
+      "resetDisabled": false,
+      "ageCount": 4,
+      "japanCount": 3
+    },
+    "mixed.html": {
+      "cards": 1,
+      "chips": 1,
+      "resetDisabled": false,
+      "ageCount": 4,
+      "japanCount": 3
+    }
+  },
+  "page2": {
+    "cards": 15,
+    "current": "2",
+    "wineTotal": 52
+  },
+  "page3": {
+    "cards": 15,
+    "current": "3",
+    "wineTotal": 52
+  },
+  "drawer": {
+    "open": true,
+    "title": "拉菲古堡 2016",
+    "hasGrape": true,
+    "hasDecant": true,
+    "sections": [
+      "传说",
+      "创作提示",
+      "常见误用",
+      "配餐",
+      "适饮温度"
+    ],
+    "hash": "#lafite-2016"
+  },
+  "printMeasure": {
+    "title": "拉菲古堡 2016",
+    "label": {
+      "x": 0,
+      "y": 0,
+      "width": 559.359375,
+      "height": 793.6875,
+      "top": 0,
+      "right": 559.359375,
+      "bottom": 793.6875,
+      "left": 0
+    },
+    "scroll": 724,
+    "client": 724
+  },
+  "pageFacts": {
+    "beer.html": {
+      "label": "beer.html desktop",
+      "title": "啤酒 · 酒谱",
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "cards": 15,
+      "rooms": 0,
+      "filters": 4,
+      "result": "49 款在枪 / 酒单 49 款 · 第 1 / 4 页",
+      "drawers": 3,
+      "h1": "啤酒 BEER",
+      "dupIds": []
+    },
+    "spirits.html": {
+      "label": "spirits.html desktop",
+      "title": "西方酒 · 酒谱",
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "cards": 15,
+      "rooms": 0,
+      "filters": 5,
+      "result": "55 瓶在架 / 酒库 55 瓶 · 第 1 / 4 页",
+      "drawers": 3,
+      "h1": "西方酒 THE SPIRITS LIBRARY",
+      "dupIds": []
+    },
+    "eastern.html": {
+      "label": "eastern.html desktop",
+      "title": "东方酒 · 酒谱",
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "cards": 15,
+      "rooms": 0,
+      "filters": 4,
+      "result": "23 通入帖 / 总帖 23 通 · 第 1 / 2 页",
+      "drawers": 3,
+      "h1": "东方酒",
+      "dupIds": []
+    },
+    "liqueur.html": {
+      "label": "liqueur.html desktop",
+      "title": "利口酒 · 酒谱",
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "cards": 8,
+      "rooms": 0,
+      "filters": 3,
+      "result": "8 瓶在柜 / 抽屉 8 瓶",
+      "drawers": 3,
+      "h1": "利口酒 Liqueur",
+      "dupIds": []
+    },
+    "mixed.html": {
+      "label": "mixed.html desktop",
+      "title": "杂酒 · 酒谱",
+      "innerWidth": 1440,
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "cards": 15,
+      "rooms": 0,
+      "filters": 2,
+      "result": "27 件在册 / 杂酒柜 27 件 · 第 1 / 2 页",
+      "drawers": 3,
+      "h1": "杂酒 MIXED NOT MIXED UP.",
+      "dupIds": []
+    }
+  },
+  "mobile": {
+    "index.html": {
+      "label": "mobile index.html",
+      "title": "酒谱 · 这瓶酒，什么来头，什么时候喝？",
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "cards": 0,
+      "rooms": 6,
+      "filters": 0,
+      "result": "",
+      "drawers": 4,
+      "h1": "这瓶酒， 什么来头， 什么时候喝？",
+      "dupIds": []
+    },
+    "wine.html": {
+      "label": "mobile wine.html",
+      "title": "葡萄酒 · 酒谱",
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "cards": 15,
+      "rooms": 0,
+      "filters": 7,
+      "result": "52 瓶入窖 / 本柜 52 瓶 · 第 1 / 4 页",
+      "drawers": 3,
+      "h1": "葡萄酒 Le langage lent",
+      "dupIds": []
+    },
+    "beer.html": {
+      "label": "mobile beer.html",
+      "title": "啤酒 · 酒谱",
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "cards": 15,
+      "rooms": 0,
+      "filters": 4,
+      "result": "49 款在枪 / 酒单 49 款 · 第 1 / 4 页",
+      "drawers": 3,
+      "h1": "啤酒 BEER",
+      "dupIds": []
+    },
+    "spirits.html": {
+      "label": "mobile spirits.html",
+      "title": "西方酒 · 酒谱",
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "cards": 15,
+      "rooms": 0,
+      "filters": 5,
+      "result": "55 瓶在架 / 酒库 55 瓶 · 第 1 / 4 页",
+      "drawers": 3,
+      "h1": "西方酒 THE SPIRITS LIBRARY",
+      "dupIds": []
+    },
+    "eastern.html": {
+      "label": "mobile eastern.html",
+      "title": "东方酒 · 酒谱",
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "cards": 15,
+      "rooms": 0,
+      "filters": 4,
+      "result": "23 通入帖 / 总帖 23 通 · 第 1 / 2 页",
+      "drawers": 3,
+      "h1": "东方酒",
+      "dupIds": []
+    },
+    "liqueur.html": {
+      "label": "mobile liqueur.html",
+      "title": "利口酒 · 酒谱",
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "cards": 8,
+      "rooms": 0,
+      "filters": 3,
+      "result": "8 瓶在柜 / 抽屉 8 瓶",
+      "drawers": 3,
+      "h1": "利口酒 Liqueur",
+      "dupIds": []
+    },
+    "mixed.html": {
+      "label": "mobile mixed.html",
+      "title": "杂酒 · 酒谱",
+      "innerWidth": 390,
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "cards": 15,
+      "rooms": 0,
+      "filters": 2,
+      "result": "27 件在册 / 杂酒柜 27 件 · 第 1 / 2 页",
+      "drawers": 3,
+      "h1": "杂酒 MIXED NOT MIXED UP.",
+      "dupIds": []
+    }
+  },
+  "random": {
+    "file": "beer.html",
+    "hash": "#weihenstephaner-hefe",
+    "open": true,
+    "title": "维森 小麦白啤"
+  },
+  "motionHome": {
+    "hasMotion": true,
+    "motes": 20,
+    "veil": "hidden",
+    "toTop": true,
+    "shineSpans": 0
+  },
+  "pointerVars": {
+    "pointerX": "0.000",
+    "cursorX": "720px",
+    "hasPointer": true
+  },
+  "scrollMotion": {
+    "progress": "matrix(0.4247, 0, 0, 1, 0, 0)",
+    "toTop": "to-top is-visible",
+    "revealed": 8,
+    "pendingReveal": 7
+  },
+  "motionSpirits": {
+    "aura": true,
+    "auraOpacity": "0.741323",
+    "pageMotes": 20,
+    "headCount": "THE PRIVATE CABINET\nVOL. 03 / 55 BOTTLES",
+    "footCount": "THE PRIVATE CABINET\n214 BOTTLES / 163 BRANDS\n11 PAGES / EDITION 2026\n酒款总表 / INVENTORY ↗",
+    "total": 214,
+    "brands": 163,
+    "spiritsTotal": 55
+  }
+}

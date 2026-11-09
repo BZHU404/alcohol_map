@@ -1,0 +1,1414 @@
+/* ==========================================================================
+   03 / SPIRITS — THE PRIVATE CABINET
+   A dark, measured bottle library. Brass rules, old paper, long shadows.
+   ========================================================================== */
+
+body.page-spirits {
+  --pg-bg: #121814;
+  --pg-ink: #eee2cf;
+  --pg-muted: #9d8d77;
+  --pg-line: rgba(238, 226, 207, 0.16);
+  --pg-strong-line: rgba(238, 226, 207, 0.36);
+  --pg-accent: #b88a54;
+  --pg-accent-2: #718a76;
+  --pg-card: #172019;
+  --head-bg: #111712;
+  --head-ink: #eee2cf;
+  --head-muted: #9d8d77;
+  --head-line: rgba(184, 138, 84, 0.35);
+  --foot-bg: #0b110d;
+  --foot-ink: #eee2cf;
+  --foot-muted: rgba(238, 226, 207, 0.48);
+  --foot-line: rgba(238, 226, 207, 0.16);
+  --veil-bg: #121814;
+  --veil-ink: #eee2cf;
+  --veil-accent: #b88a54;
+  --mote-color: rgba(184, 138, 84, 0.48);
+  --aura-color: rgba(184, 138, 84, 0.19);
+  --card-shine-color: rgba(238, 226, 207, 0.24);
+  --card-shine-blend: screen;
+  background: var(--pg-bg);
+  color: var(--pg-ink);
+}
+
+.page-spirits .app-head {
+  border-top: 1px solid var(--pg-accent);
+  border-bottom: 3px double rgba(184, 138, 84, 0.45);
+  background: #111712;
+}
+
+.page-spirits .head-shell {
+  min-height: 84px;
+}
+
+.page-spirits .brand-seal {
+  width: 35px;
+  height: 35px;
+  border-color: var(--pg-accent);
+  box-shadow: inset 0 0 0 3px #111712, inset 0 0 0 4px rgba(184, 138, 84, 0.35);
+  color: var(--pg-accent);
+  font-size: 14px;
+}
+
+.page-spirits .brand-type {
+  font-size: 20px;
+  letter-spacing: 0.2em;
+}
+
+.page-spirits .brand-type small {
+  color: var(--pg-accent);
+  letter-spacing: 0.12em;
+}
+
+.page-spirits .head-context strong {
+  font-family: var(--pg-serif);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+.page-spirits .head-context span {
+  color: rgba(238, 226, 207, 0.32);
+  font-size: 7px;
+}
+
+.page-spirits .app-nav-link {
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.page-spirits .app-nav-link small {
+  color: var(--pg-accent);
+  font-family: var(--pg-mono);
+  font-size: 6.5px;
+  letter-spacing: 0.03em;
+}
+
+.page-spirits .app-nav-link[aria-current="page"] {
+  color: var(--pg-accent);
+}
+
+.page-spirits .app-nav-link::after {
+  background: var(--pg-accent);
+}
+
+.page-spirits .tool-search,
+.page-spirits .tool-random {
+  border-color: rgba(238, 226, 207, 0.22);
+  color: var(--pg-ink);
+}
+
+.page-spirits .tool-search:hover,
+.page-spirits .tool-random:hover {
+  border-color: var(--pg-accent);
+  color: var(--pg-accent);
+}
+
+.page-spirits .app-foot {
+  margin-top: 0;
+  border-top-color: rgba(184, 138, 84, 0.28);
+}
+
+/* Hero ------------------------------------------------------------------- */
+
+.spirits-hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(184, 138, 84, 0.38);
+  background: #121814;
+}
+
+.spirits-hero::before {
+  content: "SPIRITS";
+  position: absolute;
+  top: 43px;
+  right: -0.04em;
+  color: transparent;
+  font-family: var(--pg-serif);
+  font-size: clamp(170px, 24vw, 360px);
+  line-height: 0.72;
+  letter-spacing: -0.08em;
+  -webkit-text-stroke: 1px rgba(238, 226, 207, 0.045);
+  pointer-events: none;
+}
+
+.spirits-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 13%;
+  bottom: 0;
+  left: 13%;
+  border-right: 1px solid rgba(238, 226, 207, 0.035);
+  border-left: 1px solid rgba(238, 226, 207, 0.035);
+  pointer-events: none;
+}
+
+.spirits-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding-top: 15px;
+}
+
+.spirits-hero-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid rgba(238, 226, 207, 0.13);
+  padding-bottom: 9px;
+  color: rgba(238, 226, 207, 0.42);
+  font-family: var(--pg-mono);
+  font-size: 7px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+}
+
+.spirits-hero-main {
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(390px, 0.86fr);
+  gap: clamp(38px, 6vw, 96px);
+  align-items: center;
+  padding: clamp(40px, 6vw, 88px) 0 clamp(28px, 4vw, 50px);
+}
+
+.spirits-copy {
+  max-width: 610px;
+}
+
+.spirits-copy .kicker {
+  color: var(--pg-accent);
+}
+
+.spirits-copy h1 {
+  margin-top: 17px;
+  color: var(--pg-ink);
+  font-family: var(--pg-serif);
+  font-size: clamp(69px, 9vw, 130px);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+}
+
+.spirits-copy h1 small {
+  display: block;
+  margin-top: 15px;
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: clamp(17px, 2.1vw, 27px);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+}
+
+.spirits-lede {
+  max-width: 39em;
+  margin-top: 23px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 15px;
+  line-height: 2;
+  letter-spacing: 0.01em;
+}
+
+.spirits-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  margin-top: 26px;
+  border-top: 1px solid var(--pg-line);
+  border-bottom: 1px solid var(--pg-line);
+  padding: 9px 0;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+
+.spirits-types span + span::before {
+  content: "·";
+  margin: 0 10px;
+  color: var(--pg-accent);
+}
+
+.spirits-art {
+  position: relative;
+  display: flex;
+  min-height: 467px;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 2%;
+  padding: 60px 6% 29px;
+}
+
+.spirits-art::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 1%;
+  bottom: 22px;
+  left: 1%;
+  border: 1px solid rgba(184, 138, 84, 0.45);
+  border-radius: 220px 220px 0 0;
+}
+
+.spirits-art::after {
+  content: "";
+  position: absolute;
+  right: 8%;
+  bottom: 22px;
+  left: 8%;
+  height: 9px;
+  border-top: 1px solid rgba(184, 138, 84, 0.7);
+  border-bottom: 1px solid rgba(184, 138, 84, 0.28);
+}
+
+.spirits-art .spirits-figure {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 28%;
+  height: 324px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.spirits-art .spirits-figure:nth-child(2) {
+  height: 375px;
+}
+
+.spirits-art .spirits-figure:nth-child(3) {
+  height: 292px;
+}
+
+.spirits-art .page-bottle-art {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.spirits-art .page-bottle-art svg {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
+.spirits-art .spirits-figure figcaption {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 9px;
+  color: rgba(238, 226, 207, 0.4);
+  font-family: var(--pg-mono);
+  font-size: 5.5px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spirits-hero-foot {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.4fr) minmax(130px, 0.4fr) minmax(0, 1fr);
+  gap: 20px;
+  border-top: 1px solid rgba(238, 226, 207, 0.16);
+  border-bottom: 1px solid rgba(238, 226, 207, 0.16);
+  margin-bottom: 22px;
+  padding: 11px 0;
+}
+
+.spirits-stat {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.spirits-stat strong {
+  color: var(--pg-ink);
+  font-family: var(--pg-serif);
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.spirits-stat span {
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 6px;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.spirits-quote {
+  justify-self: end;
+  max-width: 34em;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.7;
+  text-align: right;
+}
+
+/* Catalog ---------------------------------------------------------------- */
+
+.spirits-catalog {
+  position: relative;
+  border-bottom: 1px solid rgba(238, 226, 207, 0.13);
+  background: #141b16;
+}
+
+.spirits-catalog-inner {
+  padding-top: clamp(42px, 6vw, 72px);
+  padding-bottom: clamp(40px, 6vw, 70px);
+}
+
+.spirits-catalog-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  border-bottom: 1px solid rgba(238, 226, 207, 0.22);
+  padding-bottom: 15px;
+}
+
+.spirits-catalog-head .kicker {
+  color: var(--pg-accent);
+}
+
+.spirits-catalog-head h2 {
+  margin-top: 5px;
+  font-family: var(--pg-serif);
+  font-size: clamp(36px, 4.5vw, 57px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.spirits-catalog-head > div > p:last-child {
+  margin-top: 7px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.spirits-local {
+  width: min(100%, 300px);
+}
+
+.spirits-local input {
+  color: var(--pg-ink);
+}
+
+.spirits-local input::placeholder {
+  color: var(--pg-muted);
+}
+
+.spirits-filter-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border-bottom: 1px solid var(--pg-line);
+  padding: 12px 0 13px;
+}
+
+.spirits-filter-controls {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.spirits-filter-controls .filter-field-name {
+  color: var(--pg-accent);
+}
+
+.spirits-filter-controls .filter-field-control select {
+  color: var(--pg-ink);
+}
+
+.spirits-filter-controls .filter-field-control select.is-active {
+  color: var(--pg-accent);
+}
+
+.spirits-reset {
+  margin-top: 18px;
+}
+
+.spirits-result-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 44px;
+  padding: 11px 0 7px;
+}
+
+.spirits-result-row .result-line {
+  color: var(--pg-muted);
+}
+
+.spirits-result-row .chip {
+  border-color: var(--pg-line);
+  color: var(--pg-accent);
+}
+
+.spirits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: clamp(18px, 3vw, 42px);
+  row-gap: 0;
+  border-top: 1px solid var(--pg-line);
+}
+
+/* Bottle-library cards --------------------------------------------------- */
+
+.spirits-grid .release-card {
+  min-width: 0;
+  border-bottom: 1px solid var(--pg-line);
+  animation: spirits-rise 0.65s var(--pg-ease) both;
+  animation-delay: calc(var(--i) * 40ms);
+}
+
+@keyframes spirits-rise {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.spirits-grid .release-link {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  padding: 18px 3px 17px;
+  transition: background 0.25s ease;
+}
+
+.spirits-grid .release-link:hover {
+  background: rgba(238, 226, 207, 0.035);
+}
+
+.spirits-grid .release-visual {
+  position: relative;
+  display: flex;
+  height: 303px;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(184, 138, 84, 0.4);
+  border-bottom: 1px solid rgba(238, 226, 207, 0.11);
+  padding: 29px 13px 26px;
+}
+
+.spirits-grid .release-visual::before {
+  content: "";
+  position: absolute;
+  bottom: 22px;
+  left: 16%;
+  width: 68%;
+  height: 1px;
+  background: rgba(184, 138, 84, 0.48);
+}
+
+.spirits-grid .release-visual::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  bottom: 20px;
+  left: 15px;
+  border: 1px solid rgba(238, 226, 207, 0.08);
+  pointer-events: none;
+}
+
+.spirits-grid .release-order {
+  position: absolute;
+  z-index: 3;
+  top: 7px;
+  left: 1px;
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 7px;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.spirits-grid .release-tier {
+  position: absolute;
+  z-index: 3;
+  top: 6px;
+  right: 1px;
+  color: var(--pg-accent);
+  font-family: var(--pg-mono);
+  font-size: 8px;
+  line-height: 1.3;
+  letter-spacing: -0.08em;
+}
+
+.spirits-grid .release-tier em {
+  margin-left: 3px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 7px;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.spirits-grid .release-ghost {
+  position: absolute;
+  z-index: 0;
+  right: 4%;
+  bottom: 22px;
+  color: rgba(238, 226, 207, 0.055);
+  font-family: var(--pg-serif);
+  font-size: 78px;
+  font-weight: 500;
+  line-height: 0.75;
+  letter-spacing: -0.08em;
+  pointer-events: none;
+}
+
+.spirits-grid .release-bottle {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 251px;
+  align-items: flex-end;
+  justify-content: center;
+  transition: transform 0.4s var(--pg-ease);
+}
+
+.spirits-grid .release-bottle svg {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
+.spirits-grid .release-link:hover .release-bottle {
+  transform: translateY(-5px) rotateY(calc(var(--tilt-x, 0) * 5deg)) rotateX(calc(var(--tilt-y, 0) * -4deg));
+}
+
+.spirits-grid .release-caption,
+.spirits-grid .release-style {
+  position: absolute;
+  z-index: 2;
+  bottom: 6px;
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 6px;
+  line-height: 1.4;
+  letter-spacing: 0.04em;
+}
+
+.spirits-grid .release-caption {
+  left: 1px;
+}
+
+.spirits-grid .release-style {
+  right: 1px;
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: 8px;
+  letter-spacing: 0.02em;
+}
+
+.spirits-grid .release-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 15px 3px 0;
+}
+
+.spirits-grid .release-topline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 7px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.spirits-grid .release-topline span:first-child {
+  overflow: hidden;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spirits-grid .release-topline span:last-child {
+  flex: 0 0 auto;
+  color: var(--pg-accent);
+}
+
+.spirits-grid .release-brandline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 3px 7px;
+  margin-top: 13px;
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 7.5px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.spirits-grid .release-brandline span:last-child {
+  opacity: 0.55;
+}
+
+.spirits-grid .release-title {
+  margin-top: 3px;
+  color: var(--pg-ink);
+  font-family: var(--pg-serif);
+  font-size: clamp(23px, 2.3vw, 30px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+}
+
+.spirits-grid .release-en {
+  overflow: hidden;
+  margin-top: 3px;
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 6px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.spirits-grid .release-meta {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 11px;
+  border-top: 1px solid var(--pg-line);
+  border-bottom: 1px solid var(--pg-line);
+  padding: 6px 0;
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 7.5px;
+  line-height: 1.5;
+}
+
+.spirits-grid .release-meta span + span {
+  margin-left: 8px;
+  border-left: 1px solid var(--pg-line);
+  padding-left: 8px;
+}
+
+.spirits-grid .release-meta b {
+  margin-right: 3px;
+  color: var(--pg-accent);
+  font-weight: 500;
+}
+
+.spirits-grid .release-flavors {
+  margin-top: 8px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 9.5px;
+  line-height: 1.7;
+}
+
+.spirits-grid .release-flavors span {
+  margin-right: 6px;
+  color: var(--pg-accent);
+  font-family: var(--pg-mono);
+  font-size: 5.5px;
+  letter-spacing: 0.03em;
+}
+
+.spirits-grid .release-extra {
+  margin-top: 4px;
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 7px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.spirits-grid .release-extra span {
+  margin-right: 5px;
+  color: var(--pg-accent);
+}
+
+.spirits-grid .release-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 9px;
+  margin-top: auto;
+  padding-top: 11px;
+}
+
+.spirits-grid .release-price {
+  color: var(--pg-ink);
+  font-family: var(--pg-serif);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.spirits-grid .release-price small {
+  display: block;
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 5.5px;
+  letter-spacing: 0.01em;
+}
+
+.spirits-grid .release-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--pg-accent);
+  font-family: var(--pg-mono);
+  font-size: 6px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.spirits-grid .release-open .icon {
+  width: 10px;
+  height: 10px;
+}
+
+.spirits-grid .release-link:hover .release-title {
+  color: var(--pg-accent);
+}
+
+/* Pager ------------------------------------------------------------------ */
+
+.spirits-pager {
+  border-top-color: rgba(184, 138, 84, 0.35);
+}
+
+.spirits-pager .pager-summary {
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 7px;
+  letter-spacing: 0.04em;
+}
+
+.spirits-pager .pager-btn {
+  border-color: var(--pg-line);
+  color: var(--pg-muted);
+}
+
+.spirits-pager .pager-btn[aria-current="page"] {
+  border-color: var(--pg-accent);
+  background: transparent;
+  color: var(--pg-accent);
+}
+
+.spirits-pager .pager-btn:hover:not(:disabled):not([aria-current="page"]) {
+  border-color: var(--pg-accent);
+  color: var(--pg-accent);
+}
+
+/* Taxonomy --------------------------------------------------------------- */
+
+.spirits-taxonomy {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.55fr) minmax(0, 1.25fr);
+  gap: clamp(30px, 6vw, 90px);
+  margin-top: clamp(52px, 8vw, 100px);
+  border-top: 1px solid rgba(238, 226, 207, 0.17);
+  padding-top: 22px;
+}
+
+.taxonomy-head h2 {
+  margin-top: 12px;
+  font-family: var(--pg-serif);
+  font-size: clamp(31px, 3.8vw, 49px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.taxonomy-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--pg-line);
+}
+
+.taxonomy-list > div {
+  border-bottom: 1px solid var(--pg-line);
+  padding: 14px 16px 16px 0;
+}
+
+.taxonomy-list > div:nth-child(even) {
+  border-left: 1px solid var(--pg-line);
+  padding-left: 16px;
+}
+
+.taxonomy-list span {
+  display: block;
+  color: var(--pg-accent);
+  font-family: var(--pg-mono);
+  font-size: 6px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+
+.taxonomy-list strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--pg-ink);
+  font-family: var(--pg-serif);
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.taxonomy-list p {
+  max-width: 32em;
+  margin-top: 4px;
+  color: var(--pg-muted);
+  font-size: 9px;
+  line-height: 1.8;
+}
+
+.page-spirits .foot-data strong {
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: 14px;
+}
+
+/* Responsive ------------------------------------------------------------- */
+
+@media (max-width: 1120px) {
+  .spirits-hero-main {
+    grid-template-columns: minmax(0, 0.9fr) minmax(330px, 0.78fr);
+    gap: 38px;
+  }
+
+  .spirits-art {
+    min-height: 400px;
+    padding-top: 50px;
+  }
+
+  .spirits-art .spirits-figure {
+    height: 270px;
+  }
+
+  .spirits-art .spirits-figure:nth-child(2) {
+    height: 320px;
+  }
+
+  .spirits-art .spirits-figure:nth-child(3) {
+    height: 248px;
+  }
+
+  .spirits-grid .release-visual {
+    height: 270px;
+  }
+
+  .spirits-grid .release-bottle {
+    height: 224px;
+  }
+
+  .spirits-grid .release-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-spirits .head-context {
+    display: none;
+  }
+
+  .page-spirits .app-nav-link {
+    font-family: var(--pg-sans);
+    font-size: 10px;
+  }
+
+  .page-spirits .app-nav-link small {
+    display: none;
+  }
+
+  .page-spirits .brand-type {
+    font-size: 19px;
+  }
+
+  .page-spirits .brand-seal {
+    width: 31px;
+    height: 31px;
+  }
+
+  .spirits-hero-main {
+    grid-template-columns: 1fr;
+    gap: 27px;
+    padding-top: 36px;
+  }
+
+  .spirits-copy {
+    max-width: 680px;
+  }
+
+  .spirits-copy h1 {
+    font-size: clamp(66px, 13vw, 105px);
+  }
+
+  .spirits-art {
+    min-height: 365px;
+    padding-top: 35px;
+  }
+
+  .spirits-art .spirits-figure {
+    height: 260px;
+  }
+
+  .spirits-art .spirits-figure:nth-child(2) {
+    height: 306px;
+  }
+
+  .spirits-art .spirits-figure:nth-child(3) {
+    height: 238px;
+  }
+
+  .spirits-hero-foot {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .spirits-quote {
+    grid-column: 1 / -1;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .spirits-catalog-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 17px;
+  }
+
+  .spirits-local {
+    width: 100%;
+    max-width: none;
+  }
+
+  .spirits-filter-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .spirits-filter-controls {
+    width: 100%;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .spirits-reset {
+    margin-top: 0;
+  }
+
+  .spirits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .spirits-taxonomy {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 700px) {
+  .spirits-hero-top {
+    font-size: 6px;
+  }
+
+  .spirits-copy h1 {
+    font-size: clamp(65px, 20vw, 92px);
+  }
+
+  .spirits-copy h1 small {
+    margin-top: 10px;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+  }
+
+  .spirits-lede {
+    margin-top: 17px;
+    font-family: var(--pg-sans);
+    font-size: 11px;
+    line-height: 1.9;
+  }
+
+  .spirits-types {
+    margin-top: 19px;
+    font-family: var(--pg-sans);
+    font-size: 9px;
+  }
+
+  .spirits-art {
+    min-height: 285px;
+    padding: 28px 2% 19px;
+  }
+
+  .spirits-art::before {
+    border-radius: 140px 140px 0 0;
+  }
+
+  .spirits-art .spirits-figure {
+    height: 192px;
+  }
+
+  .spirits-art .spirits-figure:nth-child(2) {
+    height: 228px;
+  }
+
+  .spirits-art .spirits-figure:nth-child(3) {
+    height: 178px;
+  }
+
+  .spirits-art .spirits-figure figcaption {
+    font-size: 4.5px;
+  }
+
+  .spirits-hero-foot {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 10px 0;
+  }
+
+  .spirits-quote {
+    font-size: 10px;
+  }
+
+  .spirits-catalog-inner {
+    padding-top: 33px;
+    padding-bottom: 30px;
+  }
+
+  .spirits-catalog-head h2 {
+    font-size: 37px;
+  }
+
+  .spirits-catalog-head > div > p:last-child {
+    font-size: 10px;
+  }
+
+  .spirits-filter-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+  }
+
+  .spirits-filter-controls .filter-field-control select {
+    font-size: 9px;
+  }
+
+  .spirits-result-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 9px;
+  }
+
+  .spirits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+  }
+
+  .spirits-grid .release-link {
+    padding: 12px 0 11px;
+  }
+
+  .spirits-grid .release-visual {
+    height: 185px;
+    margin-top: 0;
+    padding: 17px 6px 16px;
+  }
+
+  .spirits-grid .release-visual::after {
+    top: 12px;
+    right: 8px;
+    bottom: 12px;
+    left: 8px;
+  }
+
+  .spirits-grid .release-bottle {
+    height: 151px;
+  }
+
+  .spirits-grid .release-order {
+    top: 2px;
+    left: 0;
+    font-size: 6px;
+  }
+
+  .spirits-grid .release-tier {
+    top: 1px;
+    right: 0;
+    font-size: 6px;
+  }
+
+  .spirits-grid .release-tier em {
+    display: none;
+  }
+
+  .spirits-grid .release-ghost {
+    bottom: 17px;
+    font-size: 43px;
+  }
+
+  .spirits-grid .release-caption {
+    bottom: 2px;
+    left: 1px;
+    font-size: 5px;
+  }
+
+  .spirits-grid .release-style {
+    right: 1px;
+    bottom: 2px;
+    font-size: 6px;
+  }
+
+  .spirits-grid .release-body {
+    padding-top: 9px;
+  }
+
+  .spirits-grid .release-topline {
+    flex-direction: column;
+    gap: 1px;
+    font-size: 6.3px;
+  }
+
+  .spirits-grid .release-topline span:last-child {
+    font-size: 6.3px;
+  }
+
+  .spirits-grid .release-brandline {
+    gap: 1px 4px;
+    margin-top: 7px;
+    font-size: 6.3px;
+  }
+
+  .spirits-grid .release-brandline span:last-child {
+    display: none;
+  }
+
+  .spirits-grid .release-title {
+    margin-top: 2px;
+    font-size: 19px;
+    line-height: 1.32;
+  }
+
+  .spirits-grid .release-en {
+    display: none;
+  }
+
+  .spirits-grid .release-meta {
+    gap: 0;
+    margin-top: 6px;
+    padding: 5px 0;
+    font-size: 6.8px;
+  }
+
+  .spirits-grid .release-meta span + span {
+    margin-left: 4px;
+    padding-left: 4px;
+  }
+
+  .spirits-grid .release-meta span:nth-child(3) {
+    display: none;
+  }
+
+  .spirits-grid .release-flavors {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-top: 5px;
+    font-size: 8.5px;
+    line-height: 1.5;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .spirits-grid .release-flavors span {
+    margin-right: 3px;
+    font-size: 5px;
+  }
+
+  .spirits-grid .release-extra {
+    display: none;
+  }
+
+  .spirits-grid .release-foot {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 7px;
+  }
+
+  .spirits-grid .release-price {
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  .spirits-grid .release-price small {
+    display: none;
+  }
+
+  .spirits-grid .release-open {
+    font-size: 6.5px;
+  }
+
+  .spirits-grid .release-title {
+    font-size: 18px;
+  }
+
+  .spirits-pager {
+    margin-top: 18px;
+  }
+
+  .spirits-taxonomy {
+    margin-top: 38px;
+  }
+
+  .taxonomy-head h2 {
+    font-size: 32px;
+  }
+
+  .taxonomy-list {
+    grid-template-columns: 1fr;
+  }
+
+  .taxonomy-list > div:nth-child(even) {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .taxonomy-list > div {
+    padding-block: 11px;
+  }
+}
+
+/* Motion ------------------------------------------------------------------ */
+
+@keyframes spirits-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spirits-art-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spirits-bottle-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spirits-arch-breathe {
+  0%,
+  100% {
+    box-shadow: inset 0 0 0 rgba(184, 138, 84, 0);
+  }
+  50% {
+    box-shadow: inset 0 0 38px rgba(184, 138, 84, 0.075);
+  }
+}
+
+.spirits-copy .kicker {
+  animation: spirits-copy-in 0.65s var(--pg-ease) 0.24s both;
+}
+
+.spirits-copy h1 {
+  animation: spirits-copy-in 0.85s var(--pg-ease) 0.34s both;
+}
+
+.spirits-lede {
+  animation: spirits-copy-in 0.75s var(--pg-ease) 0.5s both;
+}
+
+.spirits-types {
+  animation: spirits-copy-in 0.7s var(--pg-ease) 0.6s both;
+}
+
+.spirits-art {
+  animation: spirits-art-in 0.95s var(--pg-ease) 0.38s both;
+}
+
+.spirits-art .spirits-figure {
+  animation: spirits-bottle-in 0.85s var(--pg-ease) both;
+}
+
+.spirits-art .spirits-figure:nth-child(1) {
+  animation-delay: 0.52s;
+}
+
+.spirits-art .spirits-figure:nth-child(2) {
+  animation-delay: 0.62s;
+}
+
+.spirits-art .spirits-figure:nth-child(3) {
+  animation-delay: 0.72s;
+}
+
+.has-motion .spirits-art::before {
+  animation: spirits-arch-breathe 8s ease-in-out infinite;
+}
+
+.page-spirits .ambient-mote {
+  background: var(--pg-accent);
+}
+
+.has-motion .spirits-art .page-bottle-art {
+  transform: translate3d(calc(var(--pointer-x, 0) * 6px), calc(var(--pointer-y, 0) * 4px), 0);
+}
+
+/* The archive wall moves a fraction slower than the pointer. */
+.has-motion .spirits-hero::before {
+  transition: transform 1s var(--pg-ease);
+  transform: translate3d(calc(var(--pointer-x, 0) * 8px), calc(var(--pointer-y, 0) * 6px), 0);
+}
+
+.has-motion .spirits-art .page-bottle-art svg {
+  animation: pg-object-float 6.8s ease-in-out infinite alternate;
+}
+
+.has-motion .spirits-art .spirits-figure:nth-child(2) .page-bottle-art svg {
+  animation-delay: -2.7s;
+  animation-duration: 7.6s;
+}
+
+.has-motion .spirits-art .spirits-figure:nth-child(3) .page-bottle-art svg {
+  animation-delay: -4.2s;
+  animation-duration: 6.1s;
+}

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Wine website logo</title>
+  <desc id="desc">A champagne-colored wine glass and grape cluster on a deep burgundy rounded square.</desc>
+  <defs>
+    <style>
+      .cream { fill: #F7E9CF; }
+      .gold { fill: #C99A5B; }
+      .line { fill: none; stroke: #F7E9CF; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <!-- Burgundy tile and inset frame -->
+  <rect x="40" y="40" width="944" height="944" rx="88" fill="#741523"/>
+  <rect x="78" y="78" width="868" height="868" rx="52" fill="none" stroke="#F7E9CF" stroke-width="10"/>
+
+  <!-- Open circular sweep -->
+  <path d="M 800 318
+           C 744 212, 630 158, 508 158
+           C 318 158, 174 304, 174 500
+           C 174 676, 285 816, 416 850"
+        class="line" stroke-width="22"/>
+  <path d="M 548 930
+           C 674 900, 778 824, 846 722"
+        class="line" stroke-width="18"/>
+
+  <!-- Wine glass bowl -->
+  <path d="M 364 266
+           C 356 326, 328 392, 326 456
+           C 323 526, 365 568, 430 592
+           C 474 608, 490 632, 490 676
+           L 490 790
+           C 490 830, 470 848, 426 858
+           L 330 882
+           Q 326 884 334 886
+           L 590 886
+           Q 598 884 590 882
+           L 504 858
+           C 466 846, 450 830, 450 790
+           L 450 676
+           C 450 632, 468 608, 512 592
+           C 577 568, 619 526, 616 456
+           C 614 392, 586 326, 578 266
+           Z"
+        fill="none" stroke="#F7E9CF" stroke-width="15" stroke-linejoin="round"/>
+
+  <!-- Wine surface -->
+  <path d="M 345 438
+           C 402 425, 454 435, 501 446
+           C 548 457, 580 450, 602 439"
+        class="line" stroke-width="16"/>
+  <path d="M 375 350 C 354 397, 350 459, 374 506"
+        class="line" stroke-width="13"/>
+
+  <!-- Grapes -->
+  <g class="cream">
+    <circle cx="642" cy="626" r="39"/>
+    <circle cx="720" cy="596" r="40"/>
+    <circle cx="774" cy="654" r="37"/>
+    <circle cx="698" cy="710" r="39"/>
+    <circle cx="770" cy="758" r="34"/>
+    <circle cx="710" cy="814" r="35"/>
+  </g>
+
+  <!-- Vine and tendril -->
+  <path d="M 690 548
+           C 716 502, 772 498, 796 458
+           C 814 429, 790 405, 810 377
+           C 830 348, 874 353, 886 382
+           C 898 411, 876 437, 850 424"
+        class="line" stroke-width="11"/>
+  <path d="M 688 548 C 720 520, 750 514, 774 526"
+        class="line" stroke-width="9"/>
+
+  <!-- Stylized grape leaf -->
+  <path d="M 790 566
+           C 800 534, 818 510, 847 492
+           C 846 520, 859 538, 887 544
+           C 868 560, 861 582, 869 607
+           C 840 598, 819 608, 805 632
+           C 791 607, 772 596, 744 601
+           C 757 579, 759 559, 746 539
+           C 765 543, 779 552, 790 566 Z"
+        class="gold"/>
+  <path d="M 790 566 L 805 632 M 790 566 L 847 492 M 790 566 L 887 544 M 790 566 L 744 601"
+        fill="none" stroke="#741523" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Small stem joining leaf to vine -->
+  <path d="M 790 566 C 774 548, 760 540, 744 536"
+        fill="none" stroke="#C99A5B" stroke-width="9" stroke-linecap="round"/>
+</svg>

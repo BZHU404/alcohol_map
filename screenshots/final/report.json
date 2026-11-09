@@ -1,0 +1,158 @@
+{
+  "errors": [],
+  "notes": [],
+  "homeInfo": {
+    "total": "60",
+    "brands": "50",
+    "tiles": 6,
+    "counts": [
+      "16 瓶入柜",
+      "7 瓶入柜",
+      "21 瓶入柜",
+      "8 瓶入柜",
+      "5 瓶入柜",
+      "3 瓶入柜"
+    ],
+    "today": "古越龙山 中央库藏金五年",
+    "cabinetBottles": 3
+  },
+  "searchInfo": {
+    "groups": 1,
+    "brand": "格兰菲迪",
+    "hits": 7,
+    "summary": "找到 7 瓶，聚合为 1 个品牌 · 按品牌展开",
+    "pageCount": 1
+  },
+  "cross": {
+    "file": "spirits.html",
+    "hash": "#glenfiddich-12",
+    "drawerOpen": true,
+    "title": "格兰菲迪 12 年",
+    "activeNav": "西方酒\nSPIRITS"
+  },
+  "structural": {
+    "duplicateIds": [],
+    "externalAssets": [],
+    "warnings": 1,
+    "navLinks": 7
+  },
+  "wineMeta": {
+    "cardCount": 15,
+    "total": "16",
+    "brands": "16",
+    "filterCount": 7,
+    "pageButtons": [
+      "上一页",
+      "1",
+      "2",
+      "下一页"
+    ],
+    "summary": "16 瓶匹配 / 本柜共 16 瓶 · 第 1 / 2 页"
+  },
+  "filteredInfo": {
+    "cards": 6,
+    "chips": [
+      "类型：红葡萄酒"
+    ],
+    "summary": "6 瓶匹配 / 本柜共 16 瓶 清空条件"
+  },
+  "localSearchInfo": {
+    "cards": 1,
+    "empty": false,
+    "summary": "1 瓶匹配 / 本柜共 16 瓶 清空条件"
+  },
+  "page2": {
+    "cards": 1,
+    "current": "2",
+    "summary": "显示 16–16 / 共 16 瓶 · 每页 15 瓶"
+  },
+  "drawerInfo": {
+    "open": true,
+    "title": "拉菲古堡 2016",
+    "hash": "#lafite-2016",
+    "hasGrapeCard": true,
+    "hasDecant": true,
+    "sections": [
+      "传说",
+      "创作提示",
+      "常见误用",
+      "配餐",
+      "适饮温度"
+    ],
+    "contentHeight": 1836
+  },
+  "printInfo": {
+    "hasContent": true,
+    "title": "拉菲古堡 2016",
+    "labelRect": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    },
+    "labelScroll": 0,
+    "innerScroll": 0,
+    "innerClient": 0
+  },
+  "printRect": {
+    "x": 0,
+    "y": 0,
+    "width": 559.359375,
+    "height": 793.6875,
+    "scrollHeight": 724,
+    "clientHeight": 724
+  },
+  "allBottlesCheck": {
+    "checked": 60,
+    "failures": [],
+    "overflows": []
+  },
+  "spiritsMeta": {
+    "cards": 15,
+    "total": "21",
+    "types": [
+      "不限",
+      "单一麦芽威士忌",
+      "调和威士忌",
+      "波本威士忌",
+      "干邑",
+      "龙舌兰",
+      "朗姆",
+      "金酒",
+      "伏特加"
+    ],
+    "ageFilters": [
+      "不限",
+      "NAS / 无年份标注",
+      "10–17 年",
+      "18–24 年",
+      "25 年及以上"
+    ]
+  },
+  "spiritsPage2": 6,
+  "mobileHeader": {
+    "toolsTop": 0,
+    "toolsRight": 374,
+    "navTop": 45,
+    "width": 390,
+    "navScrollWidth": 390,
+    "navClientWidth": 390
+  },
+  "mobileWine": {
+    "cards": 15,
+    "cardWidth": 358,
+    "filters": 7,
+    "page": "1"
+  },
+  "randomInfo": {
+    "file": "beer.html",
+    "hash": "#westmalle-tripel",
+    "drawerOpen": true,
+    "title": "西麦尔三料啤酒",
+    "hasLayer": true
+  }
+}

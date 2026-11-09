@@ -1,0 +1,39 @@
+{
+  "result": {
+    "checked": 214,
+    "total": 214,
+    "activePage": "wine",
+    "failures": [
+      "meishi-red-oolong-plum: title mismatch",
+      "meishi-red-oolong-plum: print title mismatch",
+      "nekonome-black-tea-plum: title mismatch",
+      "nekonome-black-tea-plum: print title mismatch",
+      "kunimori-black-tea-plum: title mismatch",
+      "kunimori-black-tea-plum: print title mismatch",
+      "xiaohuayang-oil-mandarin: title mismatch",
+      "xiaohuayang-oil-mandarin: print title mismatch",
+      "dajiu-mountain-mambo: title mismatch",
+      "dajiu-mountain-mambo: print title mismatch",
+      "missberry-lime-oil-mandarin: title mismatch",
+      "missberry-lime-oil-mandarin: print title mismatch",
+      "shaoxi-lychee: title mismatch",
+      "shaoxi-lychee: print title mismatch"
+    ],
+    "overflows": [],
+    "hashAfter": "",
+    "drawerOpen": false,
+    "duplicateIds": []
+  },
+  "errors": [],
+  "pdf": {
+    "path": "screenshots/redesign/lafite-a5-print.pdf",
+    "bytes": 276858,
+    "pageCount": 1,
+    "boxes": [
+      [
+        420,
+        594.95996
+      ]
+    ]
+  }
+}

@@ -1,0 +1,1370 @@
+/* ==========================================================================
+   04 / EASTERN — 酒帖
+   Rice paper, ink, a red seal. Asymmetry, vertical breathing, a book of notes.
+   ========================================================================== */
+
+body.page-eastern {
+  --pg-bg: #f0e8d8;
+  --pg-ink: #211b15;
+  --pg-muted: #827262;
+  --pg-line: rgba(33, 27, 21, 0.17);
+  --pg-strong-line: rgba(33, 27, 21, 0.38);
+  --pg-accent: #9b3a2e;
+  --pg-accent-2: #67705b;
+  --pg-card: #f5eee2;
+  --head-bg: #f0e8d8;
+  --head-ink: #211b15;
+  --head-muted: #827262;
+  --head-line: rgba(33, 27, 21, 0.22);
+  --foot-bg: #211b15;
+  --foot-ink: #efe5d3;
+  --foot-muted: rgba(239, 229, 211, 0.52);
+  --foot-line: rgba(239, 229, 211, 0.18);
+  --veil-bg: #9b3a2e;
+  --veil-ink: #f0e8d8;
+  --veil-accent: #d6c3a3;
+  --mote-color: rgba(33, 27, 21, 0.24);
+  --card-shine-color: rgba(255, 247, 231, 0.55);
+  --card-shine-blend: soft-light;
+  background: var(--pg-bg);
+  color: var(--pg-ink);
+}
+
+.page-eastern .app-head {
+  border-top: 3px solid var(--pg-accent);
+  border-bottom: 1px solid var(--pg-ink);
+  background: var(--pg-bg);
+}
+
+.page-eastern .head-shell {
+  min-height: 78px;
+}
+
+.page-eastern .app-brand {
+  gap: 10px;
+}
+
+.page-eastern .brand-seal {
+  width: 24px;
+  height: 39px;
+  border-color: var(--pg-accent);
+  background: var(--pg-accent);
+  color: #f0e8d8;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.page-eastern .brand-type {
+  font-size: 21px;
+  letter-spacing: 0.24em;
+}
+
+.page-eastern .brand-type small {
+  color: var(--pg-accent);
+  letter-spacing: 0.1em;
+}
+
+.page-eastern .head-context strong {
+  font-family: var(--pg-serif);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.page-eastern .head-context span {
+  font-size: 7px;
+}
+
+.page-eastern .app-nav-link {
+  font-family: var(--pg-serif);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.page-eastern .app-nav-link small {
+  display: none;
+}
+
+.page-eastern .app-nav-link[aria-current="page"] {
+  color: var(--pg-accent);
+}
+
+.page-eastern .app-nav-link::after {
+  background: var(--pg-accent);
+}
+
+.page-eastern .tool-search,
+.page-eastern .tool-random {
+  border-color: rgba(33, 27, 21, 0.26);
+}
+
+.page-eastern .app-foot {
+  margin-top: 0;
+  border-top: 3px solid var(--pg-accent);
+}
+
+/* Hero ------------------------------------------------------------------- */
+
+.eastern-hero {
+  position: relative;
+  overflow: hidden;
+  background: #f0e8d8;
+}
+
+.eastern-hero::before {
+  content: "東";
+  position: absolute;
+  top: 35px;
+  right: -0.05em;
+  color: rgba(33, 27, 21, 0.035);
+  font-family: var(--pg-serif);
+  font-size: clamp(280px, 41vw, 600px);
+  font-weight: 500;
+  line-height: 0.7;
+  pointer-events: none;
+}
+
+.eastern-hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 18px;
+  bottom: 0;
+  width: 1px;
+  background: rgba(155, 58, 46, 0.17);
+  pointer-events: none;
+}
+
+.eastern-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding-top: 15px;
+}
+
+.eastern-hero-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid var(--pg-line);
+  padding-bottom: 9px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: 0.09em;
+}
+
+.eastern-hero-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) 66px minmax(260px, 0.72fr);
+  grid-template-areas:
+    "title vertical copy"
+    "art art art";
+  gap: 31px 32px;
+  align-items: end;
+  padding-top: clamp(43px, 6vw, 83px);
+  padding-bottom: 26px;
+}
+
+.eastern-title-zone {
+  grid-area: title;
+  align-self: start;
+  min-width: 0;
+}
+
+.eastern-title-zone .kicker {
+  color: var(--pg-accent);
+}
+
+.eastern-h1 {
+  margin-top: 24px;
+  font-family: var(--pg-serif);
+  font-size: clamp(96px, 12vw, 184px);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.11em;
+}
+
+.eastern-h1-red {
+  display: inline-block;
+  color: var(--pg-accent);
+}
+
+.eastern-poem {
+  margin: 25px 0 0 7px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0.17em;
+}
+
+.eastern-vertical-copy {
+  grid-area: vertical;
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+  border-left: 1px solid var(--pg-line);
+  padding: 6px 0 0 15px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.14em;
+}
+
+.eastern-vertical-copy span {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.eastern-vertical-copy span:first-child::after {
+  content: "·";
+  display: block;
+  color: var(--pg-accent);
+  margin-top: 9px;
+}
+
+.eastern-hero-copy {
+  grid-area: copy;
+  align-self: end;
+  padding-bottom: 7px;
+}
+
+.eastern-hero-copy > p {
+  max-width: 30em;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 13px;
+  line-height: 2;
+  letter-spacing: 0.015em;
+}
+
+.eastern-regions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 0;
+  margin-top: 17px;
+  border-top: 1px solid var(--pg-line);
+  border-bottom: 1px solid var(--pg-line);
+  padding: 8px 0;
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: 11px;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+}
+
+.eastern-regions span + span::before {
+  content: "／";
+  margin: 0 8px;
+  color: var(--pg-muted);
+}
+
+.eastern-art {
+  position: relative;
+  grid-area: art;
+  display: flex;
+  min-height: 262px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: clamp(22px, 5vw, 78px);
+  border-top: 1px solid var(--pg-line);
+  padding: 16px 100px 10px 4%;
+}
+
+.eastern-art::after {
+  content: "八通酒帖 · 米 曲 水 火 陶 坛";
+  position: absolute;
+  right: 24px;
+  bottom: 27px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 9px;
+  line-height: 1.7;
+  letter-spacing: 0.18em;
+  writing-mode: vertical-rl;
+}
+
+.eastern-art .eastern-figure {
+  display: flex;
+  width: 114px;
+  height: 214px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+.eastern-art .eastern-figure:nth-child(2) {
+  height: 242px;
+}
+
+.eastern-art .eastern-figure:nth-child(3) {
+  height: 203px;
+}
+
+.eastern-art .page-bottle-art {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.eastern-art .page-bottle-art svg {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+}
+
+.eastern-art .eastern-figure figcaption {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 7px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 7px;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eastern-hero-foot {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border-top: 1px solid var(--pg-line);
+  padding: 10px 0 12px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.eastern-hero-foot span:first-child {
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: 23px;
+  line-height: 1;
+}
+
+.eastern-hero-foot span:last-child {
+  margin-left: auto;
+  font-family: var(--pg-mono);
+  font-size: 6px;
+  letter-spacing: 0.06em;
+}
+
+/* Catalog ---------------------------------------------------------------- */
+
+.eastern-catalog {
+  border-top: 1px solid var(--pg-ink);
+  border-bottom: 1px solid var(--pg-ink);
+  background: #f3ecdf;
+}
+
+.eastern-catalog-inner {
+  padding-top: clamp(32px, 4.5vw, 55px);
+  padding-bottom: clamp(32px, 4vw, 50px);
+}
+
+.eastern-catalog-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 28px;
+  border-bottom: 1px solid var(--pg-line);
+  padding-bottom: 12px;
+}
+
+.eastern-catalog-head .kicker {
+  color: var(--pg-accent);
+}
+
+.eastern-catalog-head h2 {
+  margin-top: 5px;
+  font-family: var(--pg-serif);
+  font-size: clamp(32px, 4.2vw, 51px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.eastern-local {
+  width: min(100%, 286px);
+}
+
+.eastern-local input {
+  font-family: var(--pg-serif);
+  font-size: 12px;
+}
+
+.eastern-filter-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  border-bottom: 1px solid var(--pg-line);
+  padding: 10px 0 11px;
+}
+
+.eastern-filter-controls {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.eastern-filter-controls .filter-field {
+  flex-direction: row;
+  align-items: center;
+  gap: 7px;
+}
+
+.eastern-filter-controls .filter-field-name {
+  flex: 0 0 auto;
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: none;
+}
+
+.eastern-filter-controls .filter-field-control {
+  flex: 1;
+}
+
+.eastern-filter-controls .filter-field-control select {
+  height: 27px;
+  color: var(--pg-ink);
+  font-family: var(--pg-serif);
+  font-size: 10px;
+}
+
+.eastern-filter-controls .filter-field-control select.is-active {
+  color: var(--pg-accent);
+}
+
+.eastern-reset {
+  margin-top: 8px;
+  font-family: var(--pg-serif);
+}
+
+.eastern-page-mark {
+  flex: 0 0 auto;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 8px;
+  letter-spacing: 0.06em;
+}
+
+.eastern-result-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 43px;
+  padding: 10px 0 8px;
+}
+
+.eastern-result-row .result-line {
+  font-family: var(--pg-serif);
+  font-size: 11px;
+}
+
+.eastern-result-row .chip {
+  font-family: var(--pg-serif);
+  border-color: var(--pg-line);
+  color: var(--pg-accent);
+}
+
+.eastern-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--pg-line);
+}
+
+/* 酒帖 entries ----------------------------------------------------------- */
+
+.eastern-grid .release-card {
+  min-width: 0;
+  border-bottom: 1px solid var(--pg-line);
+  animation: eastern-rise 0.7s var(--pg-ease) both;
+  animation-delay: calc(var(--i) * 45ms);
+}
+
+.eastern-grid .release-card:nth-child(even) {
+  border-left: 1px solid var(--pg-line);
+}
+
+@keyframes eastern-rise {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eastern-grid .release-link {
+  position: relative;
+  display: flex;
+  min-height: 246px;
+  height: 100%;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 16px;
+  padding: 18px 18px 16px;
+  transition: background 0.22s ease;
+}
+
+.eastern-grid .release-link:hover {
+  background: rgba(155, 58, 46, 0.04);
+}
+
+.eastern-grid .release-link::before {
+  content: "";
+  position: absolute;
+  top: 23px;
+  bottom: 23px;
+  left: 0;
+  width: 2px;
+  background: var(--pg-accent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.eastern-grid .release-link:hover::before {
+  opacity: 0.75;
+}
+
+.eastern-grid .release-visual {
+  position: relative;
+  order: 2;
+  display: flex;
+  width: 107px;
+  flex: 0 0 107px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 17px;
+}
+
+.eastern-grid .release-visual::before {
+  content: "酒";
+  position: absolute;
+  z-index: 0;
+  top: 48%;
+  left: 50%;
+  color: rgba(155, 58, 46, 0.055);
+  font-family: var(--pg-serif);
+  font-size: 94px;
+  line-height: 0.7;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.eastern-grid .release-visual::after {
+  content: "";
+  position: absolute;
+  right: 10%;
+  bottom: 8px;
+  left: 10%;
+  height: 5px;
+  border-top: 1px solid rgba(33, 27, 21, 0.22);
+  border-bottom: 1px solid rgba(33, 27, 21, 0.1);
+}
+
+.eastern-grid .release-order {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border: 1px solid rgba(155, 58, 46, 0.55);
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: 8px;
+  line-height: 1;
+}
+
+.eastern-grid .release-tier {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 8px;
+  line-height: 1.4;
+  letter-spacing: -0.06em;
+}
+
+.eastern-grid .release-tier em {
+  display: none;
+}
+
+.eastern-grid .release-ghost {
+  display: none;
+}
+
+.eastern-grid .release-bottle {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 76px;
+  height: 155px;
+  transition: transform 0.35s var(--pg-ease);
+}
+
+.eastern-grid .release-bottle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.eastern-grid .release-link:hover .release-bottle {
+  transform: translateY(-4px) rotateY(calc(var(--tilt-x, 0) * 4deg)) rotateX(calc(var(--tilt-y, 0) * -3deg));
+}
+
+.eastern-grid .release-caption {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: -1px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 6px;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+}
+
+.eastern-grid .release-style {
+  display: none;
+}
+
+.eastern-grid .release-body {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  order: 1;
+  padding-top: 2px;
+}
+
+.eastern-grid .release-topline {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 8px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.eastern-grid .release-topline span:first-child {
+  overflow: hidden;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eastern-grid .release-topline span:last-child {
+  flex: 0 0 auto;
+  padding-right: 31px;
+  color: var(--pg-accent);
+  font-size: 8px;
+}
+
+.eastern-grid .release-brandline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 7px;
+  margin-top: 13px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 10px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+.eastern-grid .release-brandline span:last-child {
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.eastern-grid .release-title {
+  margin-top: 4px;
+  color: var(--pg-ink);
+  font-family: var(--pg-serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 500;
+  line-height: 1.38;
+  letter-spacing: -0.035em;
+}
+
+.eastern-grid .release-en {
+  overflow: hidden;
+  margin-top: 2px;
+  color: var(--pg-muted);
+  font-family: var(--pg-mono);
+  font-size: 6px;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eastern-grid .release-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 13px;
+  border-top: 1px solid var(--pg-line);
+  border-bottom: 1px solid var(--pg-line);
+  padding: 6px 0;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 7.8px;
+  line-height: 1.5;
+}
+
+.eastern-grid .release-meta span + span {
+  margin-left: 8px;
+  border-left: 1px solid var(--pg-line);
+  padding-left: 8px;
+}
+
+.eastern-grid .release-meta b {
+  margin-right: 3px;
+  color: var(--pg-accent);
+  font-weight: 500;
+}
+
+.eastern-grid .release-flavors {
+  display: -webkit-box;
+  overflow: hidden;
+  margin-top: 7px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 9.5px;
+  line-height: 1.7;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.eastern-grid .release-flavors span {
+  margin-right: 5px;
+  color: var(--pg-accent);
+  font-family: var(--pg-sans);
+  font-size: 5.5px;
+  letter-spacing: 0.03em;
+}
+
+.eastern-grid .release-extra {
+  display: none;
+}
+
+.eastern-grid .release-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.eastern-grid .release-price {
+  color: var(--pg-ink);
+  font-family: var(--pg-serif);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.eastern-grid .release-price small {
+  display: none;
+}
+
+.eastern-grid .release-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: 8px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.eastern-grid .release-open .icon {
+  width: 9px;
+  height: 9px;
+}
+
+.eastern-grid .release-link:hover .release-open {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Pager ------------------------------------------------------------------ */
+
+.eastern-pager {
+  border-top-color: var(--pg-strong-line);
+}
+
+.eastern-pager .pager-summary {
+  font-family: var(--pg-serif);
+  font-size: 9px;
+}
+
+.eastern-pager .pager-btn {
+  border-color: var(--pg-line);
+  color: var(--pg-muted);
+}
+
+.eastern-pager .pager-btn[aria-current="page"] {
+  border-color: var(--pg-accent);
+  background: transparent;
+  color: var(--pg-accent);
+}
+
+.eastern-pager .pager-btn:hover:not(:disabled):not([aria-current="page"]) {
+  border-color: var(--pg-accent);
+  color: var(--pg-accent);
+}
+
+/* Glossary --------------------------------------------------------------- */
+
+.eastern-glossary {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.6fr) minmax(0, 1.3fr);
+  gap: clamp(30px, 6vw, 90px);
+  margin-top: clamp(49px, 7vw, 90px);
+  border-top: 1px solid var(--pg-ink);
+  padding-top: 18px;
+}
+
+.eastern-glossary-head h2 {
+  margin-top: 12px;
+  font-family: var(--pg-serif);
+  font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+}
+
+.eastern-glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--pg-line);
+}
+
+.eastern-glossary-grid > div {
+  padding: 13px 16px 14px 0;
+}
+
+.eastern-glossary-grid > div + div {
+  border-left: 1px solid var(--pg-line);
+  padding-left: 16px;
+}
+
+.eastern-glossary-grid span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid var(--pg-accent);
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: 14px;
+}
+
+.eastern-glossary-grid strong {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--pg-serif);
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.eastern-glossary-grid p {
+  margin-top: 4px;
+  color: var(--pg-muted);
+  font-family: var(--pg-serif);
+  font-size: 9px;
+  line-height: 1.85;
+}
+
+.page-eastern .foot-data strong {
+  color: var(--pg-accent);
+  font-family: var(--pg-serif);
+  font-size: 14px;
+}
+
+/* Responsive ------------------------------------------------------------- */
+
+@media (max-width: 1120px) {
+  .eastern-hero-main {
+    grid-template-columns: minmax(0, 1.1fr) 54px minmax(230px, 0.7fr);
+    gap: 23px 20px;
+  }
+
+  .eastern-h1 {
+    font-size: clamp(90px, 12vw, 148px);
+  }
+
+  .eastern-grid .release-link {
+    gap: 11px;
+    padding-inline: 14px;
+  }
+
+  .eastern-grid .release-visual {
+    width: 91px;
+    flex-basis: 91px;
+  }
+
+  .eastern-grid .release-bottle {
+    width: 67px;
+    height: 140px;
+  }
+
+  .eastern-grid .release-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-eastern .app-nav-link {
+    font-family: var(--pg-sans);
+    font-size: 10px;
+  }
+
+  .page-eastern .brand-type {
+    font-size: 19px;
+  }
+
+  .page-eastern .head-context {
+    display: none;
+  }
+
+  .eastern-hero-main {
+    grid-template-columns: minmax(0, 1fr) minmax(230px, 0.62fr);
+    grid-template-areas:
+      "title copy"
+      "vertical copy"
+      "art art";
+    gap: 20px 30px;
+    padding-top: 37px;
+  }
+
+  .eastern-vertical-copy {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 11px;
+    border-top: 1px solid var(--pg-line);
+    border-left: 0;
+    padding: 8px 0 0;
+  }
+
+  .eastern-vertical-copy span {
+    writing-mode: horizontal-tb;
+    font-family: var(--pg-sans);
+    font-size: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .eastern-vertical-copy span:first-child::after {
+    content: "／";
+    display: inline;
+    margin: 0 0 0 7px;
+  }
+
+  .eastern-hero-copy {
+    padding-bottom: 5px;
+  }
+
+  .eastern-hero-copy > p {
+    font-size: 11px;
+  }
+
+  .eastern-art {
+    min-height: 215px;
+    padding-block: 13px 8px;
+    padding-right: 74px;
+  }
+
+  .eastern-art::after {
+    right: 16px;
+    bottom: 20px;
+    font-size: 7px;
+  }
+
+  .eastern-art .eastern-figure {
+    width: 92px;
+    height: 180px;
+  }
+
+  .eastern-art .eastern-figure:nth-child(2) {
+    height: 205px;
+  }
+
+  .eastern-art .eastern-figure:nth-child(3) {
+    height: 171px;
+  }
+
+  .eastern-catalog-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .eastern-local {
+    width: 100%;
+    max-width: none;
+  }
+
+  .eastern-filter-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .eastern-filter-controls {
+    width: 100%;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .eastern-reset {
+    margin-top: 0;
+  }
+
+  .eastern-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eastern-grid .release-card:nth-child(even) {
+    border-left: 0;
+  }
+
+  .eastern-glossary {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .eastern-glossary-grid {
+    border-top: 1px solid var(--pg-line);
+  }
+}
+
+@media (max-width: 700px) {
+  .eastern-hero-top {
+    font-size: 6.5px;
+  }
+
+  .eastern-hero-main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "copy"
+      "vertical"
+      "art";
+    gap: 16px;
+    padding-top: 29px;
+    padding-bottom: 18px;
+  }
+
+  .eastern-h1 {
+    margin-top: 17px;
+    font-size: clamp(86px, 27vw, 120px);
+  }
+
+  .eastern-poem {
+    margin-top: 17px;
+    margin-left: 2px;
+    font-size: 13px;
+  }
+
+  .eastern-hero-copy > p {
+    margin-top: 2px;
+    font-family: var(--pg-serif);
+    font-size: 11px;
+    line-height: 1.9;
+  }
+
+  .eastern-regions {
+    font-size: 9px;
+  }
+
+  .eastern-vertical-copy {
+    order: 3;
+  }
+
+  .eastern-vertical-copy span {
+    font-size: 7.5px;
+  }
+
+  .eastern-art {
+    order: 4;
+    gap: 17px;
+    min-height: 178px;
+    padding: 9px 3% 7px;
+  }
+
+  .eastern-art::after {
+    display: none;
+  }
+
+  .eastern-art .eastern-figure {
+    width: 77px;
+    height: 150px;
+  }
+
+  .eastern-art .eastern-figure:nth-child(2) {
+    height: 171px;
+  }
+
+  .eastern-art .eastern-figure:nth-child(3) {
+    height: 145px;
+  }
+
+  .eastern-art .eastern-figure figcaption {
+    font-size: 5.5px;
+  }
+
+  .eastern-hero-foot {
+    font-size: 7px;
+  }
+
+  .eastern-hero-foot span:first-child {
+    font-size: 19px;
+  }
+
+  .eastern-catalog-inner {
+    padding-top: 27px;
+    padding-bottom: 28px;
+  }
+
+  .eastern-catalog-head h2 {
+    font-size: 37px;
+  }
+
+  .eastern-filter-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px 12px;
+  }
+
+  .eastern-filter-controls .filter-field-name {
+    font-size: 8px;
+  }
+
+  .eastern-filter-controls .filter-field-control select {
+    font-size: 8.5px;
+  }
+
+  .eastern-page-mark {
+    display: none;
+  }
+
+  .eastern-result-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 8px;
+  }
+
+  .eastern-grid .release-link {
+    min-height: 0;
+    padding: 15px 1px 13px;
+  }
+
+  .eastern-grid .release-visual {
+    width: 83px;
+    flex-basis: 83px;
+  }
+
+  .eastern-grid .release-bottle {
+    width: 62px;
+    height: 130px;
+  }
+
+  .eastern-grid .release-title {
+    font-size: 24px;
+  }
+
+  .eastern-grid .release-topline span:last-child {
+    padding-right: 0;
+  }
+
+  .eastern-grid .release-style {
+    top: -2px;
+    font-size: 7px;
+  }
+
+  .eastern-grid .release-flavors {
+    font-size: 8.5px;
+  }
+
+  .eastern-pager {
+    margin-top: 18px;
+  }
+
+  .eastern-glossary {
+    margin-top: 38px;
+  }
+
+  .eastern-glossary-head h2 {
+    font-size: 30px;
+  }
+
+  .eastern-glossary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eastern-glossary-grid > div {
+    padding: 11px 0;
+  }
+
+  .eastern-glossary-grid > div + div {
+    border-top: 1px solid var(--pg-line);
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .eastern-glossary-grid span {
+    display: inline-grid;
+    margin-right: 7px;
+    vertical-align: middle;
+  }
+
+  .eastern-glossary-grid strong {
+    display: inline;
+    margin-top: 0;
+  }
+
+  .eastern-glossary-grid p {
+    font-size: 8.5px;
+  }
+}
+
+/* Motion ------------------------------------------------------------------ */
+
+@keyframes eastern-ink-in {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 105% 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes eastern-copy-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes eastern-stamp-in {
+  from {
+    opacity: 0;
+    transform: scale(1.7) rotate(-7deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes eastern-art-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.eastern-title-zone .kicker {
+  animation: eastern-copy-in 0.55s var(--pg-ease) 0.22s both;
+}
+
+.eastern-h1 {
+  animation: eastern-ink-in 0.95s var(--pg-ease) 0.3s both;
+}
+
+.eastern-h1-red {
+  animation: eastern-stamp-in 0.6s cubic-bezier(0.2, 0.9, 0.2, 1.2) 0.68s both;
+}
+
+.eastern-poem {
+  animation: eastern-copy-in 0.65s var(--pg-ease) 0.56s both;
+}
+
+.eastern-vertical-copy {
+  animation: eastern-copy-in 0.8s var(--pg-ease) 0.5s both;
+}
+
+.eastern-hero-copy {
+  animation: eastern-copy-in 0.8s var(--pg-ease) 0.6s both;
+}
+
+.eastern-art {
+  animation: eastern-art-in 0.9s var(--pg-ease) 0.46s both;
+}
+
+.page-eastern .ambient-mote {
+  width: 1px;
+  height: calc(var(--mote-size) * 4);
+  border-radius: 0;
+  background: var(--pg-accent);
+}
+
+.page-eastern .ambient-mote--alt {
+  height: calc(var(--mote-size) * 2);
+  background: var(--pg-ink);
+}
+
+.has-motion .eastern-art .page-bottle-art {
+  transform: translate3d(calc(var(--pointer-x, 0) * 2px), calc(var(--pointer-y, 0) * 2px), 0);
+}
+
+/* Ink-brush background and bottle silhouettes breathe very slowly. */
+.has-motion .eastern-hero::before {
+  transition: transform 1.1s var(--pg-ease);
+  transform: translate3d(calc(var(--pointer-x, 0) * 8px), calc(var(--pointer-y, 0) * 5px), 0);
+}
+
+.has-motion .eastern-art .page-bottle-art svg {
+  animation: pg-object-float 7.2s ease-in-out infinite alternate;
+}
+
+.has-motion .eastern-art .eastern-figure:nth-child(2) .page-bottle-art svg {
+  animation-delay: -2.2s;
+  animation-duration: 8s;
+}
+
+.has-motion .eastern-art .eastern-figure:nth-child(3) .page-bottle-art svg {
+  animation-delay: -4.8s;
+  animation-duration: 6.3s;
+}
