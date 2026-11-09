@@ -488,6 +488,7 @@ body.page-liqueur {
 /* Jewellery cards -------------------------------------------------------- */
 
 .liqueur-grid .release-card {
+  grid-column: span 4;
   min-width: 0;
   animation: liqueur-rise 0.65s var(--pg-ease) both;
   animation-delay: calc(var(--i) * 45ms);

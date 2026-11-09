@@ -18,11 +18,11 @@ PAGE_ORDER = [
 ]
 META = {
     "home": ("酒谱 · 这瓶酒，什么来头，什么时候喝？", "A field guide to bottles, labels and the right moment to open them.", "THE CELLAR INDEX", "ISSUE 00 / SIX ROOMS"),
-    "wine": ("葡萄酒 · 酒谱", "葡萄酒庄、年份、葡萄品种与醒酒时间。", "CHÂTEAU LEDGER", 'VOL. 01 / <span data-category-total>52</span> BOTTLES'),
-    "beer": ("啤酒 · 酒谱", "黑啤、白啤、拉格、IPA 与修道院啤酒。", "THE TAP ROOM", 'ON TAP / <span data-category-total>49</span> LINES'),
-    "spirits": ("西方酒 · 酒谱", "威士忌、白兰地、苦艾酒、龙舌兰、朗姆、金酒与伏特加。", "THE PRIVATE CABINET", 'VOL. 03 / <span data-category-total>55</span> BOTTLES'),
-    "eastern": ("东方酒 · 酒谱", "中国、日本、韩国、中东、东南亚与印度的酒。", "酒帖 · 东方风土录", 'VOL. 04 / <span data-category-total>23</span> NOTES'),
-    "liqueur": ("利口酒 · 酒谱", "君度、百利甜、雪利、味美思、苦精、绿查特与金巴利。", "THE AFTER-DINNER DRAWER", 'VOL. 05 / <span data-category-total>8</span> BOTTLES'),
+    "wine": ("葡萄酒 · 酒谱", "葡萄酒庄、年份、葡萄品种与醒酒时间。", "CHÂTEAU LEDGER", 'VOL. 01 / <span data-category-total>108</span> BOTTLES'),
+    "beer": ("啤酒 · 酒谱", "黑啤、白啤、拉格、IPA 与修道院啤酒。", "THE TAP ROOM", 'ON TAP / <span data-category-total>55</span> LINES'),
+    "spirits": ("西方酒 · 酒谱", "威士忌、白兰地、苦艾酒、龙舌兰、朗姆、金酒与伏特加。", "THE PRIVATE CABINET", 'VOL. 03 / <span data-category-total>125</span> BOTTLES'),
+    "eastern": ("东方酒 · 酒谱", "中国、日本、韩国、中东、东南亚与印度的酒。", "酒帖 · 东方风土录", 'VOL. 04 / <span data-category-total>102</span> NOTES'),
+    "liqueur": ("利口酒 · 酒谱", "君度、百利甜、雪利、味美思、苦精、绿查特与金巴利。", "THE AFTER-DINNER DRAWER", 'VOL. 05 / <span data-category-total>41</span> BOTTLES'),
     "mixed": ("杂酒 · 酒谱", "预调、果酒与硬苏打。", "THE COOLER ISSUE", 'VOL. 06 / <span data-category-total>27</span> ITEMS'),
 }
 VEILS = {
@@ -101,7 +101,7 @@ def footer(active: str) -> str:
     </nav>
     <div class="foot-data">
       <strong>{label}</strong>
-      <span><span data-total-bottles>214</span> BOTTLES / <span data-total-brands>163</span> BRANDS</span>
+      <span><span data-total-bottles>606</span> BOTTLES / <span data-total-brands>407</span> BRANDS</span>
       <span>11 PAGES / EDITION 2026</span>
       <a class="foot-inventory" href="inventory.svg" target="_blank" rel="noopener">酒款总表 / INVENTORY ↗</a>
     </div>
@@ -204,7 +204,7 @@ def index_page() -> str:
 <main id="main" class="home-page">
   <section class="home-cover">
     <div class="cover-shell shell">
-      <div class="cover-topline"><span>ISSUE 00 / A PRIVATE CELLAR</span><span><span data-total-bottles>214</span> BOTTLES · <span data-total-brands>163</span> BRANDS · 6 ROOMS</span></div>
+      <div class="cover-topline"><span>ISSUE 00 / A PRIVATE CELLAR</span><span><span data-total-bottles>606</span> BOTTLES · <span data-total-brands>407</span> BRANDS · 6 ROOMS</span></div>
       <div class="cover-grid">
         <div class="cover-copy">
           <p class="kicker">A FIELD GUIDE TO DRINKING</p>
@@ -251,7 +251,7 @@ def index_page() -> str:
       </div>
       <div class="home-atlas-map" aria-hidden="true">
         <img src="assets/world-mini.svg" alt="">
-        <span class="home-atlas-coord">WORLD / 27 COUNTRIES / 214 BOTTLES</span>
+        <span class="home-atlas-coord">WORLD / 48 COUNTRIES / 606 BOTTLES</span>
       </div>
     </a>
   </section>
@@ -457,7 +457,7 @@ def eastern_page() -> str:
 <main id="main" class="eastern-page">
   <section class="eastern-hero">
     <div class="eastern-hero-inner shell">
-      <div class="eastern-hero-top"><span>酒帖 / 东方风土录</span><span>VOL. 04 · <span data-category-total>23</span> NOTES</span></div>
+      <div class="eastern-hero-top"><span>酒帖 / 东方风土录</span><span>VOL. 04 · <span data-category-total>102</span> NOTES</span></div>
       <div class="eastern-hero-main">
         <div class="eastern-title-zone">
           <p class="kicker">THE EASTERN LEDGER</p>

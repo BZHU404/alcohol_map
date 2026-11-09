@@ -88,8 +88,9 @@ def fmt_meta(b):
     year = fmt_year(b)
     abv = b.get("abv")
     abv_text = (f"{abv:g}%" if isinstance(abv, (int, float)) else "—")
-    price = b.get("price", 1)
-    return f"{year}  ·  {abv_text}  ·  {'¥' * int(price)}"
+    price = b.get("price")
+    price_text = ("¥" * int(price)) if isinstance(price, (int, float)) else "参考"
+    return f"{year}  ·  {abv_text}  ·  {price_text}"
 
 add(f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-labelledby="invTitle invDesc">
 <title id="invTitle">酒谱 · 库存总表 / {TOTAL} bottles</title>

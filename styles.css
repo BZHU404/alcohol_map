@@ -2674,3 +2674,232 @@ ol {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------------------------------------------------------
+   Phase 2 · drawer additions + random pour
+   --------------------------------------------------------- */
+
+.drawer-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  padding: 2px 0;
+  font-family: var(--mono);
+  font-size: 7.5px;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.drawer-verified::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.7;
+}
+
+.verify-verified { color: #526b59; }
+.verify-partial { color: #8b6a39; }
+.verify-unverified { color: #817362; }
+
+.serve-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 18px;
+  border-top: 1px solid var(--line);
+  margin-top: 14px;
+  padding-top: 10px;
+}
+
+.serve-detail-block h4 {
+  margin: 0;
+  color: var(--ink-muted);
+  font-family: var(--mono);
+  font-size: 7px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.serve-detail-block h4 strong {
+  margin-right: 5px;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.serve-detail-block p {
+  margin-top: 5px;
+  color: var(--ink-soft);
+  font-size: 10px;
+  line-height: 1.75;
+}
+
+.serve-detail-block .tag-cloud {
+  margin-top: 5px;
+}
+
+.drawer-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.copy-button {
+  min-height: 42px;
+  padding: 10px 15px;
+  font-size: 10px;
+}
+
+.random-card {
+  position: fixed;
+  z-index: 210;
+  right: 24px;
+  bottom: 24px;
+  width: min(360px, calc(100vw - 32px));
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 18px 45px rgba(21, 18, 15, 0.2);
+}
+
+.random-card[hidden] {
+  display: none;
+}
+
+.random-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 9px 11px 9px 14px;
+}
+
+.random-card-head > span {
+  font-family: var(--mono);
+  font-size: 7px;
+  letter-spacing: 0.09em;
+}
+
+.random-card-close {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid rgba(237, 227, 210, 0.35);
+  background: transparent;
+  color: var(--cream);
+  padding: 0;
+}
+
+.random-card-close .icon {
+  width: 12px;
+  height: 12px;
+}
+
+.random-card-body {
+  padding: 15px 16px 14px;
+}
+
+.random-card-category {
+  display: block;
+  color: var(--wine);
+  font-family: var(--mono);
+  font-size: 7px;
+  line-height: 1.5;
+  letter-spacing: 0.06em;
+}
+
+.random-card-body h2 {
+  margin: 8px 0 7px;
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+}
+
+.random-card-body p {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--ink-soft);
+  font-size: 9px;
+  line-height: 1.8;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+}
+
+.random-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding: 10px 12px;
+}
+
+.random-card-actions .button {
+  min-height: 36px;
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+
+.random-again {
+  border: 0;
+  background: transparent;
+  color: var(--ink-muted);
+  padding: 8px 0;
+  font-family: var(--mono);
+  font-size: 8px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.random-again:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 560px) {
+  .serve-detail {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .drawer-action-buttons {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .random-card {
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+    width: auto;
+  }
+
+  .random-card-body h2 {
+    font-size: 24px;
+  }
+}
+
+.random-card-body[data-random-open] {
+  cursor: pointer;
+}
+
+.craft-text {
+  border-left: 2px solid var(--line-gold);
+  margin-top: 11px;
+  color: var(--ink-soft);
+  padding-left: 13px;
+  font-size: 10px;
+  line-height: 1.85;
+}

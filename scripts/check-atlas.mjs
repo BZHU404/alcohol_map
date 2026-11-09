@@ -172,18 +172,18 @@ results.franceMobile = await evaluate(`(() => ({
 }))()`);
 
 const failures = [];
-if (results.mapInitial.countryCards !== 27) failures.push("map country cards");
-if (results.mapInitial.atlasTotal !== "214") failures.push("map total");
+if (results.mapInitial.countryCards !== 48) failures.push("map country cards");
+if (results.mapInitial.atlasTotal !== "606") failures.push("map total");
 if (results.mapInitial.scrollWidth !== 1440) failures.push("map desktop overflow");
-if (results.franceSelected.bottleLinks !== 54) failures.push("France selection bottles");
+if (results.franceSelected.bottleLinks !== 83) failures.push("France selection bottles");
 if (results.franceSelected.dossierHref !== "france.html") failures.push("France dossier link");
 if (results.franceSelected.activeMapCountry !== "法国") failures.push("map country path click");
 if (results.regionSelected.bottleLinks !== 1) failures.push("region filter");
-if (results.asiaFiltered.countryCards !== 6) failures.push("Asia filter");
-if (results.querySelected.bottleLinks !== 54) failures.push("query selection");
+if (results.asiaFiltered.countryCards !== 9) failures.push("Asia filter");
+if (results.querySelected.bottleLinks !== 83) failures.push("query selection");
 if (results.mapTablet.scrollWidth !== 768) failures.push("map tablet overflow");
 if (results.mapMobile.scrollWidth !== 390) failures.push("map mobile overflow");
-if (results.france.count !== "54" || results.france.regionCards !== 12 || results.france.styleCards !== 6 || results.france.rotCards !== 5) failures.push("France page content");
+if (results.france.count !== "83" || results.france.regionCards !== 12 || results.france.styleCards !== 6 || results.france.rotCards !== 5) failures.push("France page content");
 if (results.france.mapMarkers !== 12 || results.france.legendItems !== 12) failures.push("France map markers / legend");
 if (!results.france.panelHasCoord || !results.france.panelHasAltitude || !results.france.panelHasRipen) failures.push("France panel data");
 if (!results.franceRegionSelected.panel || results.franceRegionSelected.activeMarker !== "savoie") failures.push("France region selection");

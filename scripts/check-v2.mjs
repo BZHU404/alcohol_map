@@ -292,7 +292,7 @@ for (const page of ["beer.html", "spirits.html", "eastern.html", "liqueur.html",
     const filterResult = await evaluate(`(() => ({ cards: document.querySelectorAll('.release-card').length, chips: document.querySelectorAll('#activeFilterChips .chip').length, resetDisabled: document.getElementById('filterReset').disabled, ageCount: window.BOTTLES.filter(b => b.category === 'spirits' && Number.isFinite(parseInt(b.age, 10)) && parseInt(b.age, 10) >= 18 && parseInt(b.age, 10) < 25).length, japanCount: window.BOTTLES.filter(b => b.category === 'eastern' && b.country === '日本').length }))()`);
     console.log(page + " filter", filterResult);
     filterResults[page] = filterResult;
-    const expectedCards = spec[2] === null ? (spec[0] === 'country' ? filterResult.japanCount : filterResult.ageCount) : spec[2];
+    const expectedCards = spec[2] === null ? (spec[0] === 'country' ? Math.min(15, filterResult.japanCount) : filterResult.ageCount) : spec[2];
     if (filterResult.cards !== expectedCards || filterResult.chips !== 1 || filterResult.resetDisabled) errors.push(page + ": filter behavior failed");
     await evaluate("document.getElementById('filterReset').click()");
     await wait(180);
@@ -333,10 +333,20 @@ await evaluate("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape'
 await wait(120);
 await navigate("index.html");
 await evaluate("document.querySelector('[data-random]').click()");
-await wait(800);
+await wait(300);
+const randomCard = await evaluate(`(() => ({
+  open: !document.getElementById('randomCard').hidden,
+  title: document.getElementById('randomCardTitle')?.innerText,
+  category: document.getElementById('randomCardCategory')?.innerText,
+  reason: document.getElementById('randomCardReason')?.innerText
+}))()`);
+console.log("random card", randomCard);
+if (!randomCard.open || !randomCard.title || !randomCard.category || !randomCard.reason) errors.push("random card did not render");
+await evaluate("document.querySelector('[data-random-open]').click()");
+await wait(650);
 const random = await evaluate(`(() => ({ file: location.pathname.split('/').pop(), hash: location.hash, open: !document.getElementById('drawerLayer').hidden, title: document.getElementById('drawerTitle')?.innerText }))()`);
 console.log("random", random);
-if (!random.open || !random.hash) errors.push("random bottle did not open");
+if (!random.open || !random.hash || random.title !== randomCard.title) errors.push("random bottle did not open");
 
 /* -------- Normal-motion pass: entrance, pointer, reveals, aura -------- */
 await send("Emulation.setEmulatedMedia", { media: "screen" });

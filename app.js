@@ -11,6 +11,11 @@
   var BASE_TITLE = document.title;
   var SCENARIOS = ["餐前", "配餐", "餐后", "日常", "派对"];
   var AGE_BANDS = ["NAS / 无年份标注", "10 年以下", "10–17 年", "18–24 年", "25 年及以上"];
+  var VERIFIED_LABELS = {
+    verified: { label: "已核实", className: "verify-verified" },
+    partial: { label: "部分核实", className: "verify-partial" },
+    unverified: { label: "待核实", className: "verify-unverified" }
+  };
   var PRICE_TIERS = {
     1: { name: "日常", short: "日常", range: "约 ¥300 以内" },
     2: { name: "进阶", short: "进阶", range: "约 ¥300–1,000" },
@@ -87,7 +92,9 @@
     drawerReturnFocus: null,
     searchReturnFocus: null,
     drawerHideTimer: null,
-    toastTimer: null
+    toastTimer: null,
+    randomId: null,
+    lastRandomId: null
   };
 
   var icons = {
@@ -104,7 +111,9 @@
     dice:
       '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="16" rx="1"></rect><circle cx="9" cy="9" r="1" fill="currentColor" stroke="none"></circle><circle cx="15" cy="9" r="1" fill="currentColor" stroke="none"></circle><circle cx="9" cy="15" r="1" fill="currentColor" stroke="none"></circle><circle cx="15" cy="15" r="1" fill="currentColor" stroke="none"></circle></svg>',
     print:
-      '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 9V4h10v5"></path><path d="M7 18H4V9h16v9h-3"></path><rect x="7" y="14" width="10" height="6"></rect><path d="M17 12h.01"></path></svg>'
+      '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 9V4h10v5"></path><path d="M7 18H4V9h16v9h-3"></path><rect x="7" y="14" width="10" height="6"></rect><path d="M17 12h.01"></path></svg>',
+    copy:
+      '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="8" y="8" width="11" height="11" rx="1"></rect><path d="M16 8V5H5v11h3"></path></svg>'
   };
 
   var els = {};
@@ -212,6 +221,105 @@
       return { label: "年份 / 酒龄", value: (bottle.vintage || "NV") + " / " + (bottle.age || "NAS"), long: "Vintage / Age" };
     }
     return { label: "年份 / 酒龄", value: (bottle.vintage || "NV") + " / " + (bottle.age || "NAS"), long: "Vintage / Age" };
+  }
+
+  function verifiedOf(bottle) {
+    var key = bottle && bottle.verified;
+    return VERIFIED_LABELS[key] || VERIFIED_LABELS.unverified;
+  }
+
+  function servingMethodsOf(bottle) {
+    return Array.isArray(bottle.servingMethods) ? bottle.servingMethods.filter(Boolean) : [];
+  }
+
+  function copyBottleText(bottle) {
+    var lines = [];
+    function add(label, value) {
+      if (value == null) return;
+      var text = String(value).trim();
+      if (text) lines.push(label + "：" + text);
+    }
+    add("酒款", bottle.name);
+    add("英文名", bottle.enName);
+    add("品牌", bottle.brand);
+    add("类型", bottle.subcategory);
+    add("国家", bottle.country);
+    add("产区", bottle.region);
+    if (bottle.vintage) add("年份", bottle.vintage);
+    if (bottle.age) add("酒龄", bottle.age);
+    if (bottle.abv != null && isFinite(Number(bottle.abv))) add("酒精度", formatAbv(bottle.abv) + "%");
+    add("容量", bottle.volume);
+    add("参考价格", bottle.priceRef);
+    add("风味", (bottle.flavor || []).join("、"));
+    add("香气", (bottle.aroma || []).join("、"));
+    add("颜色", bottle.color);
+    add("酒体", bottle.body);
+    add("产品状态", bottle.releaseStatus);
+    add("适合场景", (bottle.scenarios || []).join("、"));
+    add("工艺", bottle.craft);
+    add("饮用方式", servingMethodsOf(bottle).join("、"));
+    add("常见酒器", bottle.servingVessel);
+    add("创作提示", bottle.creative);
+    add("常见误用", bottle.mistake);
+    return lines.join("\n");
+  }
+
+  function legacyCopy(text) {
+    var area = document.createElement("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.top = "-9999px";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.focus();
+    area.select();
+    var ok = false;
+    try {
+      ok = document.execCommand("copy");
+    } catch (error) {
+      ok = false;
+    }
+    document.body.removeChild(area);
+    return ok;
+  }
+
+  function writeClipboard(text) {
+    try {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+        return navigator.clipboard.writeText(text).catch(function () {
+          if (!legacyCopy(text)) throw new Error("clipboard unavailable");
+        });
+      }
+    } catch (error) {
+      /* fall through to the legacy path */
+    }
+    if (legacyCopy(text)) return Promise.resolve();
+    return Promise.reject(new Error("clipboard unavailable"));
+  }
+
+  function copyBottle(id, button) {
+    var bottle = byId(id);
+    if (!bottle || !button) return;
+    var original = button.innerHTML;
+    button.disabled = true;
+    button.textContent = "正在复制…";
+    writeClipboard(copyBottleText(bottle)).then(function () {
+      showToast("创作资料已复制");
+    }).catch(function () {
+      showToast("复制失败，请手动选择文字");
+    }).then(function () {
+      button.disabled = false;
+      button.innerHTML = original;
+    });
+  }
+
+  function randomReason(bottle) {
+    if (bottle.creative) return truncate(bottle.creative, 110);
+    if (bottle.scenarios && bottle.scenarios.length) return "适合" + bottle.scenarios.join("、") + "。";
+    if (bottle.flavor && bottle.flavor.length) return "风味关键词：" + bottle.flavor.slice(0, 4).join("、") + "。";
+    if (bottle.notes) return truncate(bottle.notes, 110);
+    return "从酒柜里随手抽到的一瓶。";
   }
 
   function spiritRegion(bottle) {
@@ -766,6 +874,18 @@
         "</div>" +
       "</div>" +
       '<div class="print-label" id="printLabel" aria-hidden="true"></div>' +
+      '<aside class="random-card" id="randomCard" role="dialog" aria-labelledby="randomCardTitle" hidden>' +
+        '<div class="random-card-head"><span>随机一瓶 / RANDOM POUR</span><button class="random-card-close" type="button" data-close-random aria-label="关闭随机推荐">' + icons.close + "</button></div>" +
+        '<div class="random-card-body" data-random-open>' +
+          '<span class="random-card-category" id="randomCardCategory"></span>' +
+          '<h2 id="randomCardTitle"></h2>' +
+          '<p id="randomCardReason"></p>' +
+        "</div>" +
+        '<div class="random-card-actions">' +
+          '<button class="button" type="button" data-random-open>打开详情 <span aria-hidden="true">→</span></button>' +
+          '<button class="random-again" type="button" data-random-again>再抽一瓶</button>' +
+        "</div>" +
+      "</aside>" +
       '<div class="toast" id="toast" role="status" hidden></div>' +
       '<div class="scroll-progress" id="scrollProgress" aria-hidden="true"><span></span></div>' +
       '<button class="to-top" id="toTop" type="button" aria-label="回到页首" tabindex="-1"><span>↑</span><small>TOP</small></button>'
@@ -784,6 +904,10 @@
     els.drawerScroll = $("#drawerScroll");
     els.printLabel = $("#printLabel");
     els.toast = $("#toast");
+    els.randomCard = $("#randomCard");
+    els.randomCardCategory = $("#randomCardCategory");
+    els.randomCardTitle = $("#randomCardTitle");
+    els.randomCardReason = $("#randomCardReason");
     els.scrollProgress = $("#scrollProgress span");
     els.toTop = $("#toTop");
 
@@ -1110,6 +1234,16 @@
   function drawerMarkup(bottle) {
     var meta = CATEGORY_META[bottle.category];
     var status = statusOf(bottle);
+    var verified = verifiedOf(bottle);
+    var servingVessel = String(bottle.servingVessel || "").trim();
+    var servingMethods = servingMethodsOf(bottle);
+    var craftMarkup = bottle.craft
+      ? '<section class="drawer-section craft-section" aria-labelledby="craftHeading">' +
+          '<div class="drawer-section-head"><h3 id="craftHeading">工艺 / CRAFT</h3>' +
+            '<span class="section-note">原料、制曲、发酵与蒸馏</span></div>' +
+          '<p class="craft-text">' + esc(bottle.craft) + "</p>" +
+        "</section>"
+      : "";
     var isWine = bottle.category === "wine";
     var specs = [
       specItem("国家 / 产区", esc(bottle.country) + " <small>· " + esc(bottle.region) + "</small>"),
@@ -1128,6 +1262,15 @@
     }
     if (isWine && bottle.sweetness) {
       specs.push(specItem("甜度", esc(bottle.sweetness)));
+    }
+    if (bottle.color) {
+      specs.push(specItem("颜色 / COLOUR", esc(bottle.color)));
+    }
+    if (bottle.body) {
+      specs.push(specItem("酒体 / BODY", esc(bottle.body)));
+    }
+    if (bottle.releaseStatus) {
+      specs.push(specItem("状态 / STATUS", esc(bottle.releaseStatus)));
     }
     if (bottle.category === "eastern") {
       specs.push(specItem("类型", esc(bottle.subcategory)));
@@ -1163,12 +1306,14 @@
           '<div class="drawer-flags">' +
             '<span class="drawer-flag accent">' + esc(bottle.subcategory) + "</span>" +
             '<span class="drawer-flag">' + esc(bottle.country) + "</span>" +
+            '<span class="drawer-verified ' + verified.className + '">' + esc(verified.label) + "</span>" +
             (bottle.whiskyType ? '<span class="drawer-flag">' + esc(bottle.whiskyType) + "威士忌</span>" : "") +
             '<span class="drawer-flag">' + esc(PRICE_TIERS[bottle.price] ? PRICE_TIERS[bottle.price].name : "参考") + "档</span>" +
           "</div>" +
           '<div class="drawer-notes"><span class="eyebrow">酒款笔记 / FIELD NOTE</span><p>' + esc(bottle.notes) + "</p></div>" +
         "</header>" +
         '<dl class="spec-grid">' + specs.join("") + "</dl>" +
+        craftMarkup +
         '<section class="drawer-section" aria-labelledby="tasteHeading">' +
           '<div class="drawer-section-head"><h3 id="tasteHeading">风味与香气 <small>TASTING REFERENCE</small></h3>' +
             '<span class="section-note">主观品鉴参考 · 非质量结论</span></div>' +
@@ -1191,6 +1336,16 @@
               '<div class="info-callout" style="margin-top:8px;border:0;padding:2px 0"><div><strong>' + esc(bottle.serveTemp) + "</strong></div></div>" +
             "</div>" +
           "</div>" +
+          (servingVessel || servingMethods.length
+            ? '<div class="serve-detail">' +
+                (servingVessel ? '<div class="serve-detail-block"><h4><strong>常见酒器</strong>VESSEL</h4><p>' + esc(servingVessel) + "</p></div>" : "") +
+                (servingMethods.length
+                  ? '<div class="serve-detail-block"><h4><strong>饮用方式</strong>METHOD</h4><div class="tag-cloud">' +
+                    servingMethods.map(function (method) { return '<span class="tag">' + esc(method) + "</span>"; }).join("") +
+                    "</div></div>"
+                  : "") +
+              "</div>"
+            : "") +
           (pairings ? '<div class="info-callout" style="margin-top:12px"><div><span class="callout-label">PAIRING / 配餐</span></div><ul class="pairing-list">' + pairings + "</ul></div>" : "") +
           (decantCallout ? '<div style="margin-top:12px">' + decantCallout + "</div>" : "") +
         "</section>" +
@@ -1200,7 +1355,10 @@
           '<section class="editorial-block mistake"><h3>常见误用 <span>COMMON MISTAKE</span></h3><p>' + esc(bottle.mistake) + "</p></section>" +
         "</div>" +
         '<div class="drawer-actions">' +
-          '<button class="button print-button" type="button" data-print-bottle="' + esc(bottle.id) + '">' + icons.print + "打印 A5 酒标卡</button>" +
+          '<div class="drawer-action-buttons">' +
+            '<button class="button print-button" type="button" data-print-bottle="' + esc(bottle.id) + '">' + icons.print + "打印 A5 酒标卡</button>" +
+            '<button class="button copy-button" type="button" data-copy-bottle="' + esc(bottle.id) + '">' + icons.copy + "复制创作资料</button>" +
+          "</div>" +
           '<p class="drawer-action-note"><strong>参考价随市场变动</strong>风味描述为主观品鉴参考 · 瓶型为示意</p>' +
         "</div>" +
       "</div>"
@@ -1281,6 +1439,10 @@
       }
       if (event.target.closest("[data-print-bottle]")) {
         printBottle(event.target.closest("[data-print-bottle]").getAttribute("data-print-bottle"));
+      }
+      var copyButton = event.target.closest("[data-copy-bottle]");
+      if (copyButton) {
+        copyBottle(copyButton.getAttribute("data-copy-bottle"), copyButton);
       }
     });
 
@@ -1375,7 +1537,7 @@
         key: "subcategory",
         label: "类型",
         values: function (b) { return [b.subcategory]; },
-        order: ["红葡萄酒", "白葡萄酒", "桃红葡萄酒", "起泡酒", "冰酒", "加强酒"]
+        order: ["红葡萄酒", "白葡萄酒", "桃红葡萄酒", "起泡酒", "冰酒", "贵腐酒", "橙酒", "波特酒", "雪莉酒", "马德拉酒", "加强酒"]
       },
       { key: "country", label: "国家", values: function (b) { return [b.country]; }, sort: "locale" },
       { key: "grape", label: "葡萄品种", values: function (b) { return (b.grapes || []).map(function (g) { return g.name; }); }, sort: "locale" },
@@ -1412,7 +1574,7 @@
         key: "subcategory",
         label: "类型",
         values: function (b) { return [b.subcategory]; },
-        order: ["单一麦芽威士忌", "调和威士忌", "波本威士忌", "田纳西威士忌", "干邑", "苦艾酒", "龙舌兰", "朗姆", "金酒", "伏特加"]
+        order: ["单一麦芽威士忌", "调和威士忌", "波本威士忌", "黑麦威士忌", "田纳西威士忌", "爱尔兰威士忌", "单一壶式威士忌", "干邑", "白兰地", "雅文邑", "卡尔瓦多斯", "苦艾酒", "茴香烈酒", "阿夸维特", "格拉巴", "Pox", "Sotol", "Bacanora", "Raicilla", "Charanda", "Aguardiente", "Guaro", "梅斯卡尔", "龙舌兰", "朗姆", "卡沙萨", "皮斯科", "金酒", "伏特加"]
       },
       { key: "region", label: "产区", values: function (b) { return [spiritRegion(b)]; }, sort: "locale" },
       { key: "age", label: "酒龄", values: function (b) { return [ageBand(b)]; }, order: AGE_BANDS },
@@ -1919,19 +2081,40 @@
      Global actions, keyboard, init
      ------------------------------------------------------- */
 
+  function closeRandom() {
+    if (!els.randomCard) return;
+    els.randomCard.hidden = true;
+  }
+
+  function openRandomSelection() {
+    if (!state.randomId) return;
+    var id = state.randomId;
+    closeRandom();
+    closeSearch(false);
+    openBottle(id);
+  }
+
   function randomBottle() {
     if (!ALL.length) {
       showToast("酒柜里还没有酒。");
       return;
     }
-    var pool = state.openId ? ALL.filter(function (bottle) { return bottle.id !== state.openId; }) : ALL;
-    var bottle = pool[Math.floor(Math.random() * pool.length)] || ALL[0];
-    closeSearch(false);
-    if (PAGE === bottle.category) {
-      openBottle(bottle.id);
-    } else {
-      window.location.href = bottleHref(bottle);
+    var pool = ALL;
+    if (ALL.length > 1 && state.lastRandomId) {
+      pool = ALL.filter(function (bottle) { return bottle.id !== state.lastRandomId; });
     }
+    var bottle = pool[Math.floor(Math.random() * pool.length)] || ALL[0];
+    state.lastRandomId = bottle.id;
+    state.randomId = bottle.id;
+    closeSearch(false);
+    if (state.openId) closeBottle({ syncHash: false });
+    var meta = CATEGORY_META[bottle.category];
+    els.randomCardCategory.textContent = meta.zh + " / " + bottle.subcategory;
+    els.randomCardTitle.textContent = bottle.name;
+    els.randomCardReason.textContent = randomReason(bottle);
+    els.randomCard.hidden = false;
+    var openButton = els.randomCard.querySelector("[data-random-open]");
+    if (openButton) openButton.focus({ preventScroll: true });
   }
 
   function focusableIn(container) {
@@ -1973,6 +2156,11 @@
           closeBottle();
           return;
         }
+        if (els.randomCard && !els.randomCard.hidden) {
+          event.preventDefault();
+          closeRandom();
+          return;
+        }
       }
       if (event.key === "Tab") {
         trapFocus(event);
@@ -2003,6 +2191,22 @@
     $all("[data-random]").forEach(function (button) {
       button.addEventListener("click", randomBottle);
     });
+
+    if (els.randomCard) {
+      els.randomCard.addEventListener("click", function (event) {
+        if (event.target.closest("[data-close-random]")) {
+          closeRandom();
+          return;
+        }
+        if (event.target.closest("[data-random-again]")) {
+          randomBottle();
+          return;
+        }
+        if (event.target.closest("[data-random-open]")) {
+          openRandomSelection();
+        }
+      });
+    }
 
     $all("[data-current-year]").forEach(function (node) {
       node.textContent = new Date().getFullYear();

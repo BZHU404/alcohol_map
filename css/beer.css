@@ -200,19 +200,24 @@ body.page-beer {
 
 .beer-title-zone h1 {
   display: flex;
-  align-items: baseline;
-  gap: 14px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
   margin-top: 18px;
   color: var(--pg-ink);
   font-family: var(--pg-display);
   font-size: clamp(84px, 11vw, 160px);
-  font-weight: 900;
-  line-height: 0.76;
-  letter-spacing: -0.11em;
+  font-weight: 600;
+  line-height: 0.82;
+  letter-spacing: 0.01em;
 }
 
 .beer-title-zone h1 span {
-  display: inline-block;
+  display: block;
+  writing-mode: horizontal-tb;
+  white-space: nowrap;
+  line-height: 0.9;
+  letter-spacing: 0;
 }
 
 .beer-title-zone h1 small {
@@ -228,9 +233,9 @@ body.page-beer {
   color: var(--pg-ink);
   font-family: var(--pg-display);
   font-size: clamp(30px, 3.6vw, 49px);
-  font-weight: 900;
-  line-height: 1.09;
-  letter-spacing: -0.065em;
+  font-weight: 650;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
 }
 
 .beer-copy-zone {

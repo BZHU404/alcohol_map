@@ -3,17 +3,17 @@
     "mapInitial": {
       "title": "世界地图 · 酒谱",
       "scrollWidth": 1440,
-      "countryCards": 27,
-      "atlasTotal": "214",
-      "atlasBrands": "163",
-      "atlasCountries": "27",
+      "countryCards": 48,
+      "atlasTotal": "606",
+      "atlasBrands": "407",
+      "atlasCountries": "48",
       "mapContinents": 0,
       "filterButtons": 6
     },
     "franceSelected": {
       "heading": "法国",
-      "bottleLinks": 54,
-      "regionChips": 32,
+      "bottleLinks": 83,
+      "regionChips": 49,
       "activeMapCountry": "法国",
       "query": "?country=%E6%B3%95%E5%9B%BD",
       "dossierHref": "france.html"
@@ -23,33 +23,33 @@
       "regionActive": "波尔多 · 波美侯"
     },
     "asiaFiltered": {
-      "countryCards": 6,
+      "countryCards": 9,
       "groups": 1,
-      "activeFilter": "ASIA / 亚洲 63"
+      "activeFilter": "ASIA / 亚洲 145"
     },
     "querySelected": {
       "heading": "法国",
-      "bottleLinks": 54
+      "bottleLinks": 83
     },
     "mapTablet": {
       "scrollWidth": 768,
-      "countryCards": 27
+      "countryCards": 48
     },
     "mapMobile": {
       "scrollWidth": 390,
-      "countryCards": 27,
+      "countryCards": 48,
       "panelHeading": "先选一个\n地方。"
     },
     "france": {
       "title": "法国葡萄酒地理 · 酒谱",
       "scrollWidth": 1440,
-      "count": "54",
+      "count": "83",
       "categories": [
-        "32",
+        "43",
         "1",
-        "17",
-        "2",
-        "2"
+        "28",
+        "7",
+        "4"
       ],
       "regionCards": 12,
       "styleCards": 6,
@@ -66,11 +66,11 @@
     },
     "franceTablet": {
       "scrollWidth": 768,
-      "count": "54"
+      "count": "83"
     },
     "franceMobile": {
       "scrollWidth": 390,
-      "count": "54"
+      "count": "83"
     }
   },
   "failures": [],

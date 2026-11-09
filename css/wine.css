@@ -88,9 +88,9 @@ body.page-wine {
   display: block;
   font-family: var(--pg-serif);
   font-size: clamp(74px, 10vw, 148px);
-  font-weight: 500;
-  line-height: 0.9;
-  letter-spacing: -0.08em;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
 }
 
 .wine-h1-en {
